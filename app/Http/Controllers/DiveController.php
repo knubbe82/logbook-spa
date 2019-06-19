@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\Dive;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+use App\Http\Resources\DiveResource;
 
 class DiveController extends Controller
 {
@@ -14,7 +16,7 @@ class DiveController extends Controller
      */
     public function index()
     {
-        //
+        return DiveResource::collection(Dive::latest()->get());
     }
 
     /**
@@ -35,7 +37,10 @@ class DiveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // auth()->user()->dive()->create($request->all());
+        Dive::create($request->all());
+    
+        return response('Created', Response::HTTP_CREATED);
     }
 
     /**
@@ -46,7 +51,7 @@ class DiveController extends Controller
      */
     public function show(Dive $dive)
     {
-        //
+        return new DiveResource($dive);
     }
 
     /**
@@ -69,7 +74,9 @@ class DiveController extends Controller
      */
     public function update(Request $request, Dive $dive)
     {
-        //
+        $dive->update($request->all());
+
+        return response('Update', Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -80,6 +87,8 @@ class DiveController extends Controller
      */
     public function destroy(Dive $dive)
     {
-        //
+        $dive->delete();
+
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }
