@@ -19,6 +19,7 @@ class CreateDivesTable extends Migration
             $table->string('location');
             $table->dateTime('time');
             $table->text('description');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }
