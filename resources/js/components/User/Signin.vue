@@ -48,6 +48,11 @@ data: () => ({
         password: null
     }
   }),
+  created() {
+    if (User.loggedIn()) {
+        this.$router.push({name:'dives'})
+    }
+  },
   methods: {
       login() {
           User.login(this.form)
