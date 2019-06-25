@@ -7,6 +7,7 @@ import CreateDive from '../components/Dive/CreateDive'
 import Profile from '../components/User/Profile'
 import Signin from '../components/User/Signin'
 import Signup from '../components/User/Signup'
+import Logout from '../components/User/Logout'
 
 Vue.use(VueRouter)
 
@@ -14,11 +15,12 @@ Vue.use(VueRouter)
 
 const routes = [
     { path: '/', component: Homepage },
-    { path: '/dives', component: Dive },
+    { path: '/dives', component: Dive, name: 'dives' },
     { path: '/dive/new', component: CreateDive },
     { path: '/profile', component: Profile },
     { path: '/signin', component: Signin },
     { path: '/signup', component: Signup },
+    { path: '/logout', component: Logout },
   ]
 
 const router = new VueRouter({

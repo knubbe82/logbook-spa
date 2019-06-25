@@ -33,7 +33,7 @@ class User {
 
     logout() {
         AppStorage.clear();
-        window.location = '/dives';
+        window.location = '/';
     }
 
     name() {
