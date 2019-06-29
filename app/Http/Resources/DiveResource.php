@@ -16,6 +16,7 @@ class DiveResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'title' => $this->title,
             'location' => $this->location,
             'time' => Carbon::parse($this->time)->format('d-m-Y'),
