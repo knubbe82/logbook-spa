@@ -9,6 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import * as VueGoogleMaps from 'vue2-google-maps'
 
 Vue.use(Vuetify)
 
