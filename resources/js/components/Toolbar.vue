@@ -7,7 +7,7 @@
       app
     >
       <v-list dense>
-        <v-list-tile v-for="item in items" :key="item.text" router :to="item.link">
+        <v-list-tile v-for="item in items" :key="item.text" router :to="item.link" v-if="item.show">
           <v-list-tile-action>
             <v-icon>{{item.icon}}</v-icon>
           </v-list-tile-action>
