@@ -38993,20 +38993,22 @@ var render = function() {
             "v-list",
             { attrs: { dense: "" } },
             _vm._l(_vm.items, function(item) {
-              return _c(
-                "v-list-tile",
-                { key: item.text, attrs: { router: "", to: item.link } },
-                [
-                  _c(
-                    "v-list-tile-action",
-                    [_c("v-icon", [_vm._v(_vm._s(item.icon))])],
+              return item.show
+                ? _c(
+                    "v-list-tile",
+                    { key: item.text, attrs: { router: "", to: item.link } },
+                    [
+                      _c(
+                        "v-list-tile-action",
+                        [_c("v-icon", [_vm._v(_vm._s(item.icon))])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-list-tile-content", [_vm._v(_vm._s(item.text))])
+                    ],
                     1
-                  ),
-                  _vm._v(" "),
-                  _c("v-list-tile-content", [_vm._v(_vm._s(item.text))])
-                ],
-                1
-              )
+                  )
+                : _vm._e()
             }),
             1
           )
