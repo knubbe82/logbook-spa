@@ -40,7 +40,7 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
-    public function dive()
+    public function dives()
     {
         return $this->hasMany(Dive::class);
     }
