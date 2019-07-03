@@ -1951,14 +1951,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      date: new Date().toISOString().substr(0, 10),
-      time: null,
+      form: {
+        date: new Date().toISOString().substr(0, 10),
+        time: null,
+        location: null,
+        bottom_time: null,
+        max_depth: null,
+        water_temp: null
+      },
       modal: false,
       modal2: false
     };
+  },
+  methods: {
+    createDive: function createDive() {
+      console.log(this.form);
+    }
   }
 });
 
@@ -38776,7 +38820,15 @@ var render = function() {
         [
           _c(
             "v-flex",
-            { attrs: { xs12: "" } },
+            {
+              attrs: {
+                xs12: "",
+                sm8: "",
+                md8: "",
+                "offset-sm2": "",
+                "offset-md2": ""
+              }
+            },
             [
               _c(
                 "v-card",
@@ -38791,13 +38843,24 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "v-form",
+                    {
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.createDive($event)
+                        }
+                      }
+                    },
                     [
                       _c(
                         "v-card-text",
                         [
                           _c(
                             "v-layout",
-                            { attrs: { row: "", wrap: "" } },
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
                             [
                               _c(
                                 "v-flex",
@@ -38808,7 +38871,7 @@ var render = function() {
                                     {
                                       ref: "dialog",
                                       attrs: {
-                                        "return-value": _vm.date,
+                                        "return-value": _vm.form.date,
                                         persistent: "",
                                         lazy: "",
                                         "full-width": "",
@@ -38816,12 +38879,20 @@ var render = function() {
                                       },
                                       on: {
                                         "update:returnValue": function($event) {
-                                          _vm.date = $event
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "date",
+                                            $event
+                                          )
                                         },
                                         "update:return-value": function(
                                           $event
                                         ) {
-                                          _vm.date = $event
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "date",
+                                            $event
+                                          )
                                         }
                                       },
                                       scopedSlots: _vm._u([
@@ -38840,11 +38911,15 @@ var render = function() {
                                                       readonly: ""
                                                     },
                                                     model: {
-                                                      value: _vm.date,
+                                                      value: _vm.form.date,
                                                       callback: function($$v) {
-                                                        _vm.date = $$v
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "date",
+                                                          $$v
+                                                        )
                                                       },
-                                                      expression: "date"
+                                                      expression: "form.date"
                                                     }
                                                   },
                                                   on
@@ -38869,11 +38944,11 @@ var render = function() {
                                         {
                                           attrs: { scrollable: "" },
                                           model: {
-                                            value: _vm.date,
+                                            value: _vm.form.date,
                                             callback: function($$v) {
-                                              _vm.date = $$v
+                                              _vm.$set(_vm.form, "date", $$v)
                                             },
-                                            expression: "date"
+                                            expression: "form.date"
                                           }
                                         },
                                         [
@@ -38905,7 +38980,7 @@ var render = function() {
                                               on: {
                                                 click: function($event) {
                                                   return _vm.$refs.dialog.save(
-                                                    _vm.date
+                                                    _vm.form.date
                                                   )
                                                 }
                                               }
@@ -38931,9 +39006,9 @@ var render = function() {
                                   _c(
                                     "v-dialog",
                                     {
-                                      ref: "dialog",
+                                      ref: "dialogTime",
                                       attrs: {
-                                        "return-value": _vm.time,
+                                        "return-value": _vm.form.time,
                                         persistent: "",
                                         lazy: "",
                                         "full-width": "",
@@ -38941,12 +39016,20 @@ var render = function() {
                                       },
                                       on: {
                                         "update:returnValue": function($event) {
-                                          _vm.time = $event
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "time",
+                                            $event
+                                          )
                                         },
                                         "update:return-value": function(
                                           $event
                                         ) {
-                                          _vm.time = $event
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "time",
+                                            $event
+                                          )
                                         }
                                       },
                                       scopedSlots: _vm._u([
@@ -38966,11 +39049,15 @@ var render = function() {
                                                       readonly: ""
                                                     },
                                                     model: {
-                                                      value: _vm.time,
+                                                      value: _vm.form.time,
                                                       callback: function($$v) {
-                                                        _vm.time = $$v
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "time",
+                                                          $$v
+                                                        )
                                                       },
-                                                      expression: "time"
+                                                      expression: "form.time"
                                                     }
                                                   },
                                                   on
@@ -38996,11 +39083,15 @@ var render = function() {
                                             {
                                               attrs: { "full-width": "" },
                                               model: {
-                                                value: _vm.time,
+                                                value: _vm.form.time,
                                                 callback: function($$v) {
-                                                  _vm.time = $$v
+                                                  _vm.$set(
+                                                    _vm.form,
+                                                    "time",
+                                                    $$v
+                                                  )
                                                 },
-                                                expression: "time"
+                                                expression: "form.time"
                                               }
                                             },
                                             [
@@ -39031,8 +39122,8 @@ var render = function() {
                                                   },
                                                   on: {
                                                     click: function($event) {
-                                                      return _vm.$refs.dialog.save(
-                                                        _vm.time
+                                                      return _vm.$refs.dialogTime.save(
+                                                        _vm.form.time
                                                       )
                                                     }
                                                   }
@@ -39046,6 +39137,101 @@ var render = function() {
                                     ],
                                     1
                                   )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c("v-text-field", {
+                            attrs: {
+                              label: "Location, Country",
+                              "prepend-icon": "room",
+                              type: "text"
+                            },
+                            model: {
+                              value: _vm.form.location,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "location", $$v)
+                              },
+                              expression: "form.location"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bottom time (minutes)",
+                                      "prepend-icon": "access_time",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bottom_time,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bottom_time", $$v)
+                                      },
+                                      expression: "form.bottom_time"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Max depth (meters)",
+                                      "prepend-icon": "trending_down",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.max_depth,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "max_depth", $$v)
+                                      },
+                                      expression: "form.max_depth"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Water temperature (celsius)",
+                                      "prepend-icon": "error_outline",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bottom_time,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bottom_time", $$v)
+                                      },
+                                      expression: "form.bottom_time"
+                                    }
+                                  })
                                 ],
                                 1
                               )
@@ -84285,8 +84471,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/nikolazivkovic/dev/logbook/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/nikolazivkovic/dev/logbook/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/nikola42zivkovic/dev/logbook-spa/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/nikola42zivkovic/dev/logbook-spa/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
