@@ -1984,6 +1984,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1993,10 +2023,18 @@ __webpack_require__.r(__webpack_exports__);
         location: null,
         bottom_time: null,
         max_depth: null,
-        water_temp: null
+        water_temp: null,
+        day_night: null,
+        visibility: null,
+        dive_start: null,
+        current: null,
+        tank_type: null
       },
       modal: false,
-      modal2: false
+      modal2: false,
+      start: ['cave', 'wreck', 'boat', 'shore'],
+      current: ['some', 'none', 'strong'],
+      tanks: ['alu', 'steal']
     };
   },
   methods: {
@@ -39172,7 +39210,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("v-text-field", {
                             attrs: {
-                              label: "Location, Country",
+                              label: "Place, Country",
                               "prepend-icon": "room",
                               type: "text"
                             },
@@ -39249,11 +39287,117 @@ var render = function() {
                                       type: "text"
                                     },
                                     model: {
-                                      value: _vm.form.bottom_time,
+                                      value: _vm.form.water_temp,
                                       callback: function($$v) {
-                                        _vm.$set(_vm.form, "bottom_time", $$v)
+                                        _vm.$set(_vm.form, "water_temp", $$v)
                                       },
-                                      expression: "form.bottom_time"
+                                      expression: "form.water_temp"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c(
+                                    "v-radio-group",
+                                    {
+                                      attrs: { row: "" },
+                                      model: {
+                                        value: _vm.form.day_night,
+                                        callback: function($$v) {
+                                          _vm.$set(_vm.form, "day_night", $$v)
+                                        },
+                                        expression: "form.day_night"
+                                      }
+                                    },
+                                    [
+                                      _c("v-radio", {
+                                        attrs: { label: "Day", value: "0" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("v-radio", {
+                                        attrs: { label: "Night", value: "1" }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.start,
+                                      label: "Dive start"
+                                    },
+                                    model: {
+                                      value: _vm.form.dive_start,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "dive_start", $$v)
+                                      },
+                                      expression: "form.dive_start"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.current,
+                                      label: "Current"
+                                    },
+                                    model: {
+                                      value: _vm.form.current,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "current", $$v)
+                                      },
+                                      expression: "form.current"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.tanks,
+                                      label: "Tank type"
+                                    },
+                                    model: {
+                                      value: _vm.form.tank_type,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "tank_type", $$v)
+                                      },
+                                      expression: "form.tank_type"
                                     }
                                   })
                                 ],

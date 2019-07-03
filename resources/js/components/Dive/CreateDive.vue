@@ -70,7 +70,7 @@
                     <v-divider></v-divider>
                     <v-text-field
                         v-model="form.location"
-                        label="Location, Country"
+                        label="Place, Country"
                         prepend-icon="room"
                         type="text"
                     ></v-text-field>
@@ -94,11 +94,41 @@
                         </v-flex>
                         <v-flex xs12 sm4>
                             <v-text-field
-                                v-model="form.bottom_time"
+                                v-model="form.water_temp"
                                 label="Water temperature (celsius)"
                                 prepend-icon="error_outline"
                                 type="text"
                             ></v-text-field>
+                        </v-flex>
+                    </v-layout>
+                    <v-divider></v-divider>
+                    <v-layout row wrap class="pa-2">
+                        <v-flex xs12 sm3>
+                            <v-radio-group v-model="form.day_night" row>
+                                <v-radio label="Day" value="0"></v-radio>
+                                <v-radio label="Night" value="1"></v-radio>
+                            </v-radio-group>
+                        </v-flex>
+                        <v-flex xs12 sm3>
+                            <v-select
+                                :items="start"
+                                label="Dive start"
+                                v-model="form.dive_start"
+                            ></v-select>
+                        </v-flex>
+                        <v-flex xs12 sm3>
+                            <v-select
+                                v-model="form.current"
+                                :items="current"
+                                label="Current"
+                            ></v-select>
+                        </v-flex>
+                        <v-flex xs12 sm3>
+                            <v-select
+                                v-model="form.tank_type"
+                                :items="tanks"
+                                label="Tank type"
+                            ></v-select>
                         </v-flex>
                     </v-layout>
                 </v-card-text>
@@ -124,9 +154,17 @@
         bottom_time: null,
         max_depth: null,
         water_temp: null,
+        day_night: null,
+        visibility: null,
+        dive_start: null,
+        current: null,
+        tank_type: null,
       },
         modal: false,
-        modal2: false
+        modal2: false,
+        start: ['cave', 'wreck', 'boat', 'shore'],
+        current: ['some', 'none', 'strong'],
+        tanks: ['alu', 'steal'],
      
     }),
     methods: {
