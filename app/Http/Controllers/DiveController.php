@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\DiveResource;
 use Carbon\Carbon;
+use App\Http\Requests\DiveStoreRequest;
 
 class DiveController extends Controller
 {
@@ -46,7 +47,7 @@ class DiveController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DiveStoreRequest $request)
     {
         $input = $request->except('date');
         $input['time'] = Carbon::createFromTimestamp(strtotime( $request['date'] . $input['time'] . ":00"));
