@@ -16,7 +16,7 @@ Vue.use(VueRouter)
 const routes = [
     { path: '/', component: Homepage },
     { path: '/dives', component: Dive, name: 'dives' },
-    { path: '/dive/new', component: CreateDive },
+    { path: '/create', component: CreateDive },
     { path: '/profile', component: Profile },
     { path: '/signin', component: Signin },
     { path: '/signup', component: Signup },

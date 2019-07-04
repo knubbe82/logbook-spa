@@ -1859,10 +1859,288 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/dives.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dive/dives.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/CreateDive.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dive/CreateDive.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        date: new Date().toISOString().substr(0, 10),
+        time: null,
+        location: null,
+        bottom_time: null,
+        max_depth: null,
+        water_temp: null,
+        day_night: null,
+        visibility: null,
+        dive_start: null,
+        current: null,
+        tank_type: null,
+        tank_capacity: null,
+        bar_start: null,
+        bar_end: null,
+        gas_mix: null,
+        belt_weights: null,
+        bcd_weights: null,
+        description: null
+      },
+      modal: false,
+      modal2: false,
+      start: ['cave', 'wreck', 'boat', 'shore'],
+      current: ['some', 'none', 'strong'],
+      tanks: ['alu', 'steal'],
+      capacity: ['10L', '12L', '15L', '18L'],
+      gas: ['Tx', 'EAN', 'Air']
+    };
+  },
+  methods: {
+    createDive: function createDive() {
+      var _this = this;
+
+      axios.post('/api/dive', this.form).then(function (res) {
+        return _this.$router.push('/dives');
+      })["catch"](function (error) {
+        return _this.errors = error.response.data.errors;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/SingleDive.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dive/SingleDive.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1909,6 +2187,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['dive', 'loop'],
+  components: {
+    HereMap: _HereMap__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/dives.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dive/dives.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SingleDive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SingleDive */ "./resources/js/components/Dive/SingleDive.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -1922,7 +2224,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    HereMap: _HereMap__WEBPACK_IMPORTED_MODULE_0__["default"]
+    SingleDive: _SingleDive__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -2106,7 +2408,7 @@ __webpack_require__.r(__webpack_exports__);
       items: [{
         icon: 'add',
         text: 'Add Dive',
-        link: '/dive/new',
+        link: '/create',
         show: User.loggedIn()
       }, {
         icon: 'library_books',
@@ -38662,16 +38964,914 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "v-container",
+    [
+      _c(
+        "v-layout",
+        { attrs: { row: "", wrap: "" } },
+        [
+          _c(
+            "v-flex",
+            {
+              attrs: {
+                xs12: "",
+                sm8: "",
+                md8: "",
+                "offset-sm2": "",
+                "offset-md2": ""
+              }
+            },
+            [
+              _c(
+                "v-card",
+                { staticClass: "elevation-12" },
+                [
+                  _c(
+                    "v-toolbar",
+                    { attrs: { dark: "", color: "blue darken-4" } },
+                    [_c("v-toolbar-title", [_vm._v("Create dive")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-form",
+                    {
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.createDive($event)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "v-card-text",
+                        [
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c(
+                                    "v-dialog",
+                                    {
+                                      ref: "dialog",
+                                      attrs: {
+                                        "return-value": _vm.form.date,
+                                        persistent: "",
+                                        lazy: "",
+                                        "full-width": "",
+                                        width: "290px"
+                                      },
+                                      on: {
+                                        "update:returnValue": function($event) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "date",
+                                            $event
+                                          )
+                                        },
+                                        "update:return-value": function(
+                                          $event
+                                        ) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "date",
+                                            $event
+                                          )
+                                        }
+                                      },
+                                      scopedSlots: _vm._u([
+                                        {
+                                          key: "activator",
+                                          fn: function(ref) {
+                                            var on = ref.on
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  {
+                                                    attrs: {
+                                                      label: "Date",
+                                                      "prepend-icon": "event",
+                                                      readonly: ""
+                                                    },
+                                                    model: {
+                                                      value: _vm.form.date,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "date",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression: "form.date"
+                                                    }
+                                                  },
+                                                  on
+                                                )
+                                              )
+                                            ]
+                                          }
+                                        }
+                                      ]),
+                                      model: {
+                                        value: _vm.modal,
+                                        callback: function($$v) {
+                                          _vm.modal = $$v
+                                        },
+                                        expression: "modal"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-date-picker",
+                                        {
+                                          attrs: { scrollable: "" },
+                                          model: {
+                                            value: _vm.form.date,
+                                            callback: function($$v) {
+                                              _vm.$set(_vm.form, "date", $$v)
+                                            },
+                                            expression: "form.date"
+                                          }
+                                        },
+                                        [
+                                          _c("v-spacer"),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                flat: "",
+                                                color: "primary"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  _vm.modal = false
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("Cancel")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                flat: "",
+                                                color: "primary"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.$refs.dialog.save(
+                                                    _vm.form.date
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("OK")]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("v-spacer"),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c(
+                                    "v-dialog",
+                                    {
+                                      ref: "dialogTime",
+                                      attrs: {
+                                        "return-value": _vm.form.time,
+                                        persistent: "",
+                                        lazy: "",
+                                        "full-width": "",
+                                        width: "290px"
+                                      },
+                                      on: {
+                                        "update:returnValue": function($event) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "time",
+                                            $event
+                                          )
+                                        },
+                                        "update:return-value": function(
+                                          $event
+                                        ) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "time",
+                                            $event
+                                          )
+                                        }
+                                      },
+                                      scopedSlots: _vm._u([
+                                        {
+                                          key: "activator",
+                                          fn: function(ref) {
+                                            var on = ref.on
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  {
+                                                    attrs: {
+                                                      label: "Time",
+                                                      "prepend-icon":
+                                                        "access_time",
+                                                      readonly: ""
+                                                    },
+                                                    model: {
+                                                      value: _vm.form.time,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "time",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression: "form.time"
+                                                    }
+                                                  },
+                                                  on
+                                                )
+                                              )
+                                            ]
+                                          }
+                                        }
+                                      ]),
+                                      model: {
+                                        value: _vm.modal2,
+                                        callback: function($$v) {
+                                          _vm.modal2 = $$v
+                                        },
+                                        expression: "modal2"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(" "),
+                                      _vm.modal2
+                                        ? _c(
+                                            "v-time-picker",
+                                            {
+                                              attrs: { "full-width": "" },
+                                              model: {
+                                                value: _vm.form.time,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.form,
+                                                    "time",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "form.time"
+                                              }
+                                            },
+                                            [
+                                              _c("v-spacer"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  attrs: {
+                                                    flat: "",
+                                                    color: "primary"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      _vm.modal2 = false
+                                                    }
+                                                  }
+                                                },
+                                                [_vm._v("Cancel")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  attrs: {
+                                                    flat: "",
+                                                    color: "primary"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.$refs.dialogTime.save(
+                                                        _vm.form.time
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [_vm._v("OK")]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c("v-text-field", {
+                            attrs: {
+                              label: "Place, Country",
+                              "prepend-icon": "room",
+                              type: "text"
+                            },
+                            model: {
+                              value: _vm.form.location,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "location", $$v)
+                              },
+                              expression: "form.location"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bottom time (minutes)",
+                                      "prepend-icon": "timer",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bottom_time,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bottom_time", $$v)
+                                      },
+                                      expression: "form.bottom_time"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Max depth (meters)",
+                                      "prepend-icon": "trending_down",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.max_depth,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "max_depth", $$v)
+                                      },
+                                      expression: "form.max_depth"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Water temperature (celsius)",
+                                      "prepend-icon": "error_outline",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.water_temp,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "water_temp", $$v)
+                                      },
+                                      expression: "form.water_temp"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c(
+                                    "v-radio-group",
+                                    {
+                                      attrs: { row: "" },
+                                      model: {
+                                        value: _vm.form.day_night,
+                                        callback: function($$v) {
+                                          _vm.$set(_vm.form, "day_night", $$v)
+                                        },
+                                        expression: "form.day_night"
+                                      }
+                                    },
+                                    [
+                                      _c("v-radio", {
+                                        attrs: { label: "Day", value: "0" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("v-radio", {
+                                        attrs: { label: "Night", value: "1" }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Visibility (meters)",
+                                      "prepend-icon": "visibility",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.visibility,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "visibility", $$v)
+                                      },
+                                      expression: "form.visibility"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.start,
+                                      label: "Dive start",
+                                      "prepend-icon": "directions_boat"
+                                    },
+                                    model: {
+                                      value: _vm.form.dive_start,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "dive_start", $$v)
+                                      },
+                                      expression: "form.dive_start"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.current,
+                                      label: "Current",
+                                      "prepend-icon": "waves"
+                                    },
+                                    model: {
+                                      value: _vm.form.current,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "current", $$v)
+                                      },
+                                      expression: "form.current"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.tanks,
+                                      label: "Tank type",
+                                      "prepend-icon": "battery_unknown"
+                                    },
+                                    model: {
+                                      value: _vm.form.tank_type,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "tank_type", $$v)
+                                      },
+                                      expression: "form.tank_type"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.capacity,
+                                      label: "Tank capacity",
+                                      "prepend-icon": "battery_unknown"
+                                    },
+                                    model: {
+                                      value: _vm.form.tank_capacity,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "tank_capacity", $$v)
+                                      },
+                                      expression: "form.tank_capacity"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bar at start",
+                                      "prepend-icon": "battery_full",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bar_start,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bar_start", $$v)
+                                      },
+                                      expression: "form.bar_start"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bar at end",
+                                      "prepend-icon": "battery_alert",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bar_end,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bar_end", $$v)
+                                      },
+                                      expression: "form.bar_end"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.gas,
+                                      label: "Gas mix",
+                                      "prepend-icon": "gradient"
+                                    },
+                                    model: {
+                                      value: _vm.form.gas_mix,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "gas_mix", $$v)
+                                      },
+                                      expression: "form.gas_mix"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Belt weights (kg)",
+                                      "prepend-icon": "info",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.belt_weights,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "belt_weights", $$v)
+                                      },
+                                      expression: "form.belt_weights"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "BCD weights (kg)",
+                                      "prepend-icon": "info",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bcd_weights,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bcd_weights", $$v)
+                                      },
+                                      expression: "form.bcd_weights"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c("v-textarea", {
+                            attrs: {
+                              outline: "",
+                              box: "",
+                              label: "Description",
+                              "auto-grow": ""
+                            },
+                            model: {
+                              value: _vm.form.description,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "description", $$v)
+                              },
+                              expression: "form.description"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-spacer"),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            { attrs: { color: "primary", type: "submit" } },
+                            [_vm._v("Create")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("p", [_vm._v("\n        create dive\n    ")])])
-  }
-]
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/SingleDive.vue?vue&type=template&id=3e453a5c&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dive/SingleDive.vue?vue&type=template&id=3e453a5c& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    { attrs: { fluid: "" } },
+    [
+      _c(
+        "v-layout",
+        { attrs: { row: "", wrap: "" } },
+        [
+          _c(
+            "v-flex",
+            { attrs: { xs12: "", sm4: "", md3: "" } },
+            [
+              _c("HereMap", {
+                attrs: {
+                  location: _vm.dive.location,
+                  appId: "JIR32DZwRYGNRc5B2Mw9",
+                  appCode: "szAk-Zocf2xxI1yPoYJHWg",
+                  width: "100%",
+                  height: "200px"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { xs12: "", sm8: "", md9: "" } },
+            [
+              _c(
+                "v-card-title",
+                { staticClass: "py-0", attrs: { "primary-title": "" } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "mt-2" },
+                    [
+                      _c(
+                        "h3",
+                        [
+                          _vm._v("# "),
+                          _c("v-badge", {
+                            staticClass: "mb-2",
+                            attrs: { color: "blue-grey darken-4" },
+                            scopedSlots: _vm._u([
+                              {
+                                key: "badge",
+                                fn: function() {
+                                  return [
+                                    _c("span", [_vm._v(_vm._s(_vm.loop + 1))])
+                                  ]
+                                },
+                                proxy: true
+                              }
+                            ])
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-divider"),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mt-2" }, [
+                        _c("p", { staticClass: "subheading mb-0" }, [
+                          _vm._v("Date: " + _vm._s(_vm.dive.time))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "subheading mb-0" }, [
+                          _vm._v("Location: " + _vm._s(_vm.dive.location))
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v("Opis: " + _vm._s(_vm.dive.description) + " ")
+                        ])
+                      ])
+                    ],
+                    1
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c(
+                    "v-btn",
+                    { staticClass: "primary", attrs: { round: "" } },
+                    [
+                      _c("v-icon", { attrs: { left: "" } }, [
+                        _vm._v("arrow_forward")
+                      ]),
+                      _vm._v("\n              View Dive\n            ")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38707,146 +39907,7 @@ var render = function() {
               return _c(
                 "v-card",
                 { key: dive.id, staticClass: "mb-3" },
-                [
-                  _c(
-                    "v-container",
-                    { attrs: { fluid: "" } },
-                    [
-                      _c(
-                        "v-layout",
-                        { attrs: { row: "", wrap: "" } },
-                        [
-                          _c(
-                            "v-flex",
-                            { attrs: { xs12: "", sm4: "", md3: "" } },
-                            [
-                              _c("HereMap", {
-                                attrs: {
-                                  location: dive.location,
-                                  appId: "JIR32DZwRYGNRc5B2Mw9",
-                                  appCode: "szAk-Zocf2xxI1yPoYJHWg",
-                                  width: "100%",
-                                  height: "200px"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-flex",
-                            { attrs: { xs12: "", sm8: "", md9: "" } },
-                            [
-                              _c(
-                                "v-card-title",
-                                {
-                                  staticClass: "py-0",
-                                  attrs: { "primary-title": "" }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "mt-2" },
-                                    [
-                                      _c(
-                                        "h3",
-                                        [
-                                          _vm._v("# "),
-                                          _c("v-badge", {
-                                            staticClass: "mb-2",
-                                            attrs: {
-                                              color: "blue-grey darken-4"
-                                            },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "badge",
-                                                  fn: function() {
-                                                    return [
-                                                      _c("span", [
-                                                        _vm._v(
-                                                          _vm._s(index + 1)
-                                                        )
-                                                      ])
-                                                    ]
-                                                  },
-                                                  proxy: true
-                                                }
-                                              ],
-                                              null,
-                                              true
-                                            )
-                                          })
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c("v-divider"),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "mt-2" }, [
-                                        _c(
-                                          "p",
-                                          { staticClass: "subheading mb-0" },
-                                          [_vm._v("Date: " + _vm._s(dive.time))]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          { staticClass: "subheading mb-0" },
-                                          [
-                                            _vm._v(
-                                              "Location: " +
-                                                _vm._s(dive.location)
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("span", [
-                                          _vm._v(
-                                            "Opis: " +
-                                              _vm._s(dive.description) +
-                                              " "
-                                          )
-                                        ])
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-card-actions",
-                                [
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      staticClass: "primary",
-                                      attrs: { round: "" }
-                                    },
-                                    [
-                                      _c("v-icon", { attrs: { left: "" } }, [
-                                        _vm._v("arrow_forward")
-                                      ]),
-                                      _vm._v(
-                                        "\n                  View Dive\n                "
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
+                [_c("single-dive", { attrs: { dive: dive, loop: index } })],
                 1
               )
             }),
@@ -83040,7 +84101,7 @@ var routes = [{
   component: _components_Dive_dives__WEBPACK_IMPORTED_MODULE_3__["default"],
   name: 'dives'
 }, {
-  path: '/dive/new',
+  path: '/create',
   component: _components_Dive_CreateDive__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
   path: '/profile',
@@ -83259,15 +84320,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CreateDive_vue_vue_type_template_id_62b46310___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateDive.vue?vue&type=template&id=62b46310& */ "./resources/js/components/Dive/CreateDive.vue?vue&type=template&id=62b46310&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _CreateDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateDive.vue?vue&type=script&lang=js& */ "./resources/js/components/Dive/CreateDive.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CreateDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _CreateDive_vue_vue_type_template_id_62b46310___WEBPACK_IMPORTED_MODULE_0__["render"],
   _CreateDive_vue_vue_type_template_id_62b46310___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -83284,6 +84347,20 @@ component.options.__file = "resources/js/components/Dive/CreateDive.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Dive/CreateDive.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/Dive/CreateDive.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CreateDive.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/CreateDive.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Dive/CreateDive.vue?vue&type=template&id=62b46310&":
 /*!************************************************************************************!*\
   !*** ./resources/js/components/Dive/CreateDive.vue?vue&type=template&id=62b46310& ***!
@@ -83297,6 +84374,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateDive_vue_vue_type_template_id_62b46310___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateDive_vue_vue_type_template_id_62b46310___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Dive/SingleDive.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/Dive/SingleDive.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SingleDive_vue_vue_type_template_id_3e453a5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SingleDive.vue?vue&type=template&id=3e453a5c& */ "./resources/js/components/Dive/SingleDive.vue?vue&type=template&id=3e453a5c&");
+/* harmony import */ var _SingleDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SingleDive.vue?vue&type=script&lang=js& */ "./resources/js/components/Dive/SingleDive.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SingleDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SingleDive_vue_vue_type_template_id_3e453a5c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SingleDive_vue_vue_type_template_id_3e453a5c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Dive/SingleDive.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Dive/SingleDive.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/Dive/SingleDive.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SingleDive.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/SingleDive.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Dive/SingleDive.vue?vue&type=template&id=3e453a5c&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/Dive/SingleDive.vue?vue&type=template&id=3e453a5c& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleDive_vue_vue_type_template_id_3e453a5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./SingleDive.vue?vue&type=template&id=3e453a5c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/SingleDive.vue?vue&type=template&id=3e453a5c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleDive_vue_vue_type_template_id_3e453a5c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleDive_vue_vue_type_template_id_3e453a5c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -83855,8 +85001,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/nikolazivkovic/dev/logbook/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/nikolazivkovic/dev/logbook/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/nikola42zivkovic/dev/logbook-spa/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/nikola42zivkovic/dev/logbook-spa/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

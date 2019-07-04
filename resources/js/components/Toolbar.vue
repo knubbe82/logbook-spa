@@ -51,7 +51,7 @@ export default {
       dialog: false,
       drawer: null,
       items: [
-        { icon: 'add', text: 'Add Dive', link: '/dive/new', show: User.loggedIn() },
+        { icon: 'add', text: 'Add Dive', link: '/create', show: User.loggedIn() },
         { icon: 'library_books', text: 'My Dives', link: '/dives', show: User.loggedIn() },
         { icon: 'person', text: 'Profile', link: '/profile', show: User.loggedIn() },
         { icon: 'face', text: 'Sign up', link: '/signup', show: !User.loggedIn() },
