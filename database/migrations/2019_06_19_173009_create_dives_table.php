@@ -29,9 +29,9 @@ class CreateDivesTable extends Migration
             $table->integer('bar_start');
             $table->integer('bar_end');
             $table->string('gas_mix');
-            $table->string('belt_weights');
-            $table->string('bcd_weights');
-            $table->text('description');
+            $table->string('belt_weights')->nullable();
+            $table->string('bcd_weights')->nullable();
+            $table->text('description')->nullable();
             $table->unsignedInteger('user_id');
             $table->timestamps();
         });

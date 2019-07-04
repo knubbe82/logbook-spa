@@ -2090,6 +2090,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2119,7 +2136,8 @@ __webpack_require__.r(__webpack_exports__);
       current: ['some', 'none', 'strong'],
       tanks: ['alu', 'steal'],
       capacity: ['10L', '12L', '15L', '18L'],
-      gas: ['Tx', 'EAN', 'Air']
+      gas: ['Tx', 'EAN', 'Air'],
+      errors: {}
     };
   },
   methods: {
@@ -39145,7 +39163,15 @@ var render = function() {
                                       )
                                     ],
                                     1
-                                  )
+                                  ),
+                                  _vm._v(" "),
+                                  _vm.errors.time
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.time[0]))]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               ),
@@ -39289,7 +39315,15 @@ var render = function() {
                                         : _vm._e()
                                     ],
                                     1
-                                  )
+                                  ),
+                                  _vm._v(" "),
+                                  _vm.errors.time
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.time[0]))]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               )
@@ -39313,6 +39347,12 @@ var render = function() {
                               expression: "form.location"
                             }
                           }),
+                          _vm._v(" "),
+                          _vm.errors.location
+                            ? _c("span", { staticClass: "red--text caption" }, [
+                                _vm._v(_vm._s(_vm.errors.location[0]))
+                              ])
+                            : _vm._e(),
                           _vm._v(" "),
                           _c("v-divider"),
                           _vm._v(" "),
@@ -39340,7 +39380,19 @@ var render = function() {
                                       },
                                       expression: "form.bottom_time"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bottom_time
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.bottom_time[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               ),
@@ -39362,7 +39414,19 @@ var render = function() {
                                       },
                                       expression: "form.max_depth"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.max_depth
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.max_depth[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               ),
@@ -39384,7 +39448,19 @@ var render = function() {
                                       },
                                       expression: "form.water_temp"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.water_temp
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.water_temp[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               )
@@ -39427,7 +39503,19 @@ var render = function() {
                                       })
                                     ],
                                     1
-                                  )
+                                  ),
+                                  _vm._v(" "),
+                                  _vm.errors.day_night
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.day_night[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               ),
@@ -39449,7 +39537,19 @@ var render = function() {
                                       },
                                       expression: "form.visibility"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.visibility
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.visibility[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               ),
@@ -39471,7 +39571,19 @@ var render = function() {
                                       },
                                       expression: "form.dive_start"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.dive_start
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.dive_start[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               ),
@@ -39493,7 +39605,15 @@ var render = function() {
                                       },
                                       expression: "form.current"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.current
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.current[0]))]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               )
@@ -39527,7 +39647,19 @@ var render = function() {
                                       },
                                       expression: "form.tank_type"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.tank_type
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.tank_type[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               ),
@@ -39549,7 +39681,19 @@ var render = function() {
                                       },
                                       expression: "form.tank_capacity"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.tank_capacity
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.tank_capacity[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               )
@@ -39583,7 +39727,19 @@ var render = function() {
                                       },
                                       expression: "form.bar_start"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bar_start
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.bar_start[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               ),
@@ -39605,7 +39761,15 @@ var render = function() {
                                       },
                                       expression: "form.bar_end"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bar_end
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.bar_end[0]))]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               ),
@@ -39627,7 +39791,15 @@ var render = function() {
                                       },
                                       expression: "form.gas_mix"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.gas_mix
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.gas_mix[0]))]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               )
@@ -39661,7 +39833,19 @@ var render = function() {
                                       },
                                       expression: "form.belt_weights"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.belt_weights
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.belt_weights[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               ),
@@ -39683,7 +39867,19 @@ var render = function() {
                                       },
                                       expression: "form.bcd_weights"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bcd_weights
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.bcd_weights[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               )
