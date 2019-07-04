@@ -2014,6 +2014,82 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2028,18 +2104,33 @@ __webpack_require__.r(__webpack_exports__);
         visibility: null,
         dive_start: null,
         current: null,
-        tank_type: null
+        tank_type: null,
+        tank_capacity: null,
+        bar_start: null,
+        bar_end: null,
+        gas_mix: null,
+        belt_weights: null,
+        bcd_weights: null,
+        description: null
       },
       modal: false,
       modal2: false,
       start: ['cave', 'wreck', 'boat', 'shore'],
       current: ['some', 'none', 'strong'],
-      tanks: ['alu', 'steal']
+      tanks: ['alu', 'steal'],
+      capacity: ['10L', '12L', '15L', '18L'],
+      gas: ['Tx', 'EAN', 'Air']
     };
   },
   methods: {
     createDive: function createDive() {
-      console.log(this.form);
+      var _this = this;
+
+      axios.post('/api/dive', this.form).then(function (res) {
+        return _this.$router.push('/dives');
+      })["catch"](function (error) {
+        return _this.errors = error.response.data.errors;
+      });
     }
   }
 });
@@ -39239,7 +39330,7 @@ var render = function() {
                                   _c("v-text-field", {
                                     attrs: {
                                       label: "Bottom time (minutes)",
-                                      "prepend-icon": "access_time",
+                                      "prepend-icon": "timer",
                                       type: "text"
                                     },
                                     model: {
@@ -39345,10 +39436,33 @@ var render = function() {
                                 "v-flex",
                                 { attrs: { xs12: "", sm3: "" } },
                                 [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Visibility (meters)",
+                                      "prepend-icon": "visibility",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.visibility,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "visibility", $$v)
+                                      },
+                                      expression: "form.visibility"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
                                   _c("v-select", {
                                     attrs: {
                                       items: _vm.start,
-                                      label: "Dive start"
+                                      label: "Dive start",
+                                      "prepend-icon": "directions_boat"
                                     },
                                     model: {
                                       value: _vm.form.dive_start,
@@ -39369,7 +39483,8 @@ var render = function() {
                                   _c("v-select", {
                                     attrs: {
                                       items: _vm.current,
-                                      label: "Current"
+                                      label: "Current",
+                                      "prepend-icon": "waves"
                                     },
                                     model: {
                                       value: _vm.form.current,
@@ -39381,16 +39496,29 @@ var render = function() {
                                   })
                                 ],
                                 1
-                              ),
-                              _vm._v(" "),
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
                               _c(
                                 "v-flex",
-                                { attrs: { xs12: "", sm3: "" } },
+                                { attrs: { xs12: "", sm6: "" } },
                                 [
                                   _c("v-select", {
                                     attrs: {
                                       items: _vm.tanks,
-                                      label: "Tank type"
+                                      label: "Tank type",
+                                      "prepend-icon": "battery_unknown"
                                     },
                                     model: {
                                       value: _vm.form.tank_type,
@@ -39402,10 +39530,184 @@ var render = function() {
                                   })
                                 ],
                                 1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.capacity,
+                                      label: "Tank capacity",
+                                      "prepend-icon": "battery_unknown"
+                                    },
+                                    model: {
+                                      value: _vm.form.tank_capacity,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "tank_capacity", $$v)
+                                      },
+                                      expression: "form.tank_capacity"
+                                    }
+                                  })
+                                ],
+                                1
                               )
                             ],
                             1
-                          )
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bar at start",
+                                      "prepend-icon": "battery_full",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bar_start,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bar_start", $$v)
+                                      },
+                                      expression: "form.bar_start"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bar at end",
+                                      "prepend-icon": "battery_alert",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bar_end,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bar_end", $$v)
+                                      },
+                                      expression: "form.bar_end"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.gas,
+                                      label: "Gas mix",
+                                      "prepend-icon": "gradient"
+                                    },
+                                    model: {
+                                      value: _vm.form.gas_mix,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "gas_mix", $$v)
+                                      },
+                                      expression: "form.gas_mix"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Belt weights (kg)",
+                                      "prepend-icon": "info",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.belt_weights,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "belt_weights", $$v)
+                                      },
+                                      expression: "form.belt_weights"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "BCD weights (kg)",
+                                      "prepend-icon": "info",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bcd_weights,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bcd_weights", $$v)
+                                      },
+                                      expression: "form.bcd_weights"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c("v-textarea", {
+                            attrs: {
+                              outline: "",
+                              box: "",
+                              label: "Description",
+                              "auto-grow": ""
+                            },
+                            model: {
+                              value: _vm.form.description,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "description", $$v)
+                              },
+                              expression: "form.description"
+                            }
+                          })
                         ],
                         1
                       ),

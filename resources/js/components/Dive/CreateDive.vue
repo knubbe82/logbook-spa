@@ -80,7 +80,7 @@
                             <v-text-field
                                 v-model="form.bottom_time"
                                 label="Bottom time (minutes)"
-                                prepend-icon="access_time"
+                                prepend-icon="timer"
                                 type="text"
                             ></v-text-field>
                         </v-flex>
@@ -110,10 +110,19 @@
                             </v-radio-group>
                         </v-flex>
                         <v-flex xs12 sm3>
+                            <v-text-field
+                                v-model="form.visibility"
+                                label="Visibility (meters)"
+                                prepend-icon="visibility"
+                                type="text"
+                            ></v-text-field>
+                        </v-flex>
+                        <v-flex xs12 sm3>
                             <v-select
                                 :items="start"
                                 label="Dive start"
                                 v-model="form.dive_start"
+                                prepend-icon="directions_boat"
                             ></v-select>
                         </v-flex>
                         <v-flex xs12 sm3>
@@ -121,16 +130,83 @@
                                 v-model="form.current"
                                 :items="current"
                                 label="Current"
+                                prepend-icon="waves"
                             ></v-select>
                         </v-flex>
-                        <v-flex xs12 sm3>
+                    </v-layout>
+                    <v-divider></v-divider>
+                    <v-layout row wrap class="pa-2">
+                        <v-flex xs12 sm6>
                             <v-select
                                 v-model="form.tank_type"
                                 :items="tanks"
                                 label="Tank type"
+                                prepend-icon="battery_unknown"
+                            ></v-select>
+                        </v-flex>
+                        <v-flex xs12 sm6>
+                            <v-select
+                                :items="capacity"
+                                label="Tank capacity"
+                                v-model="form.tank_capacity"
+                                prepend-icon="battery_unknown"
                             ></v-select>
                         </v-flex>
                     </v-layout>
+                    <v-divider></v-divider>
+                    <v-layout row wrap class="pa-2">
+                        <v-flex xs12 sm4>
+                            <v-text-field
+                                v-model="form.bar_start"
+                                label="Bar at start"
+                                prepend-icon="battery_full"
+                                type="text"
+                            ></v-text-field>
+                        </v-flex>
+                        <v-flex xs12 sm4>
+                            <v-text-field
+                                v-model="form.bar_end"
+                                label="Bar at end"
+                                prepend-icon="battery_alert"
+                                type="text"
+                            ></v-text-field>
+                        </v-flex>
+                        <v-flex xs12 sm4>
+                            <v-select
+                                v-model="form.gas_mix"
+                                :items="gas"
+                                label="Gas mix"
+                                prepend-icon="gradient"
+                            ></v-select>
+                        </v-flex>
+                    </v-layout>
+                    <v-divider></v-divider>
+                    <v-layout row wrap class="pa-2">
+                        <v-flex xs12 sm6>
+                            <v-text-field
+                                v-model="form.belt_weights"
+                                label="Belt weights (kg)"
+                                prepend-icon="info"
+                                type="text"
+                            ></v-text-field>
+                        </v-flex>
+                        <v-flex xs12 sm6>
+                            <v-text-field
+                                v-model="form.bcd_weights"
+                                label="BCD weights (kg)"
+                                prepend-icon="info"
+                                type="text"
+                            ></v-text-field>
+                        </v-flex>
+                    </v-layout>
+                    <v-divider></v-divider>
+                    <v-textarea
+                        outline
+                        box
+                        label="Description"
+                        auto-grow
+                        v-model="form.description"
+                    ></v-textarea>
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
@@ -159,18 +235,28 @@
         dive_start: null,
         current: null,
         tank_type: null,
+        tank_capacity: null,
+        bar_start: null,
+        bar_end: null,
+        gas_mix: null,
+        belt_weights: null,
+        bcd_weights: null,
+        description: null,
       },
         modal: false,
         modal2: false,
         start: ['cave', 'wreck', 'boat', 'shore'],
         current: ['some', 'none', 'strong'],
         tanks: ['alu', 'steal'],
+        capacity: ['10L', '12L', '15L', '18L'],
+        gas: ['Tx', 'EAN', 'Air'],
      
     }),
     methods: {
         createDive() {
-            console.log(this.form)
-
+            axios.post('/api/dive', this.form)
+            .then(res => this.$router.push('/dives'))
+            .catch(error => this.errors = error.response.data.errors)
         }
     }
   }
