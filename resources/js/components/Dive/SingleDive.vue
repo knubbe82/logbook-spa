@@ -32,6 +32,11 @@
                   <v-icon left>arrow_forward</v-icon>
                   View Dive
                 </v-btn>
+                <v-btn icon small>
+                  <router-link :to="{name: 'edit', params: {dive}}">
+                    <v-icon color="orange">edit</v-icon>
+                  </router-link>
+                </v-btn>
               </v-card-actions>
             </v-flex>
           </v-layout>
