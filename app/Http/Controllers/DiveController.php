@@ -88,7 +88,10 @@ class DiveController extends Controller
      */
     public function update(Request $request, Dive $dive)
     {
-        $dive->update($request->all());
+        $input = $request->except('date');
+        $input['time'] = Carbon::createFromTimestamp(strtotime( $request['date'] . $input['time'] . ":00"));
+
+        $dive->update($input);
 
         return response('Update', Response::HTTP_ACCEPTED);
     }

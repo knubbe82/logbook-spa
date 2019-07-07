@@ -21,7 +21,7 @@
                   </h3>
                   <v-divider></v-divider>
                   <div class="mt-2">
-                  <p class="subheading mb-0">Date: {{ dive.time }}</p>
+                  <p class="subheading mb-0">Date: {{ dive.time_of_diving }}</p>
                   <p class="subheading mb-0">Location: {{ dive.location }}</p>
                   <span>Opis: {{ dive.description }} </span>
                   </div>
@@ -32,11 +32,12 @@
                   <v-icon left>arrow_forward</v-icon>
                   View Dive
                 </v-btn>
-                <v-btn icon small>
-                  <router-link :to="{name: 'edit', params: {dive}}">
-                    <v-icon color="orange">edit</v-icon>
-                  </router-link>
-                </v-btn>
+                <router-link :to="{name: 'edit', params: {dive}}" style="text-decoration: none">
+                  <v-btn round class="ml-2">
+                      <v-icon left>edit</v-icon>
+                      Edit
+                  </v-btn>
+                </router-link>
               </v-card-actions>
             </v-flex>
           </v-layout>

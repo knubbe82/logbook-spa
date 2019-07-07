@@ -2168,8 +2168,285 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['dive']
+  props: ['dive'],
+  data: function data() {
+    return {
+      form: {
+        date: new Date(this.dive.date).toISOString().substr(0, 10),
+        time: new Date(this.dive.date).toISOString().substr(11, 5),
+        location: this.dive.location,
+        bottom_time: this.dive.bottom_time,
+        max_depth: this.dive.max_depth,
+        water_temp: this.dive.water_temp,
+        day_night: this.dive.day_night,
+        visibility: this.dive.visibility,
+        dive_start: this.dive.dive_start,
+        current: this.dive.current,
+        tank_type: this.dive.tank_type,
+        tank_capacity: this.dive.tank_capacity,
+        bar_start: this.dive.bar_start,
+        bar_end: this.dive.bar_end,
+        gas_mix: this.dive.gas_mix,
+        belt_weights: this.dive.belt_weights,
+        bcd_weights: this.dive.bcd_weights,
+        description: this.dive.description
+      },
+      modal: false,
+      modal2: false,
+      start: ['cave', 'wreck', 'boat', 'shore'],
+      current: ['some', 'none', 'strong'],
+      tanks: ['alu', 'steal'],
+      capacity: ['10L', '12L', '15L', '18L'],
+      gas: ['Tx', 'EAN', 'Air'],
+      errors: {}
+    };
+  },
+  methods: {
+    updateDive: function updateDive() {
+      var _this = this;
+
+      axios.patch("/api/dive/".concat(this.dive.id), this.form).then(function (res) {
+        return _this.$router.push('/dives');
+      })["catch"](function (error) {
+        return console.log(error.response.data);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -2184,6 +2461,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _HereMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../HereMap */ "./resources/js/components/HereMap.vue");
+//
 //
 //
 //
@@ -39983,7 +40261,960 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v(_vm._s(_vm.dive.gas_mix))])
+  return _c(
+    "v-container",
+    [
+      _c(
+        "v-layout",
+        { attrs: { row: "", wrap: "" } },
+        [
+          _c(
+            "v-flex",
+            {
+              attrs: {
+                xs12: "",
+                sm8: "",
+                md8: "",
+                "offset-sm2": "",
+                "offset-md2": ""
+              }
+            },
+            [
+              _c(
+                "v-card",
+                { staticClass: "elevation-12" },
+                [
+                  _c(
+                    "v-toolbar",
+                    { attrs: { dark: "", color: "blue darken-4" } },
+                    [_c("v-toolbar-title", [_vm._v("Create dive")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-form",
+                    {
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.updateDive($event)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "v-card-text",
+                        [
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c(
+                                    "v-dialog",
+                                    {
+                                      ref: "dialog",
+                                      attrs: {
+                                        "return-value": _vm.form.date,
+                                        persistent: "",
+                                        lazy: "",
+                                        "full-width": "",
+                                        width: "290px"
+                                      },
+                                      on: {
+                                        "update:returnValue": function($event) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "date",
+                                            $event
+                                          )
+                                        },
+                                        "update:return-value": function(
+                                          $event
+                                        ) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "date",
+                                            $event
+                                          )
+                                        }
+                                      },
+                                      scopedSlots: _vm._u([
+                                        {
+                                          key: "activator",
+                                          fn: function(ref) {
+                                            var on = ref.on
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  {
+                                                    attrs: {
+                                                      label: "Date",
+                                                      "prepend-icon": "event",
+                                                      readonly: ""
+                                                    },
+                                                    model: {
+                                                      value: _vm.form.date,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "date",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression: "form.date"
+                                                    }
+                                                  },
+                                                  on
+                                                )
+                                              )
+                                            ]
+                                          }
+                                        }
+                                      ]),
+                                      model: {
+                                        value: _vm.modal,
+                                        callback: function($$v) {
+                                          _vm.modal = $$v
+                                        },
+                                        expression: "modal"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-date-picker",
+                                        {
+                                          attrs: { scrollable: "" },
+                                          model: {
+                                            value: _vm.form.date,
+                                            callback: function($$v) {
+                                              _vm.$set(_vm.form, "date", $$v)
+                                            },
+                                            expression: "form.date"
+                                          }
+                                        },
+                                        [
+                                          _c("v-spacer"),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                flat: "",
+                                                color: "primary"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  _vm.modal = false
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("Cancel")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                flat: "",
+                                                color: "primary"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.$refs.dialog.save(
+                                                    _vm.form.date
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("OK")]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _vm.errors.time
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.time[0]))]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("v-spacer"),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c(
+                                    "v-dialog",
+                                    {
+                                      ref: "dialogTime",
+                                      attrs: {
+                                        "return-value": _vm.form.time,
+                                        persistent: "",
+                                        lazy: "",
+                                        "full-width": "",
+                                        width: "290px"
+                                      },
+                                      on: {
+                                        "update:returnValue": function($event) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "time",
+                                            $event
+                                          )
+                                        },
+                                        "update:return-value": function(
+                                          $event
+                                        ) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "time",
+                                            $event
+                                          )
+                                        }
+                                      },
+                                      scopedSlots: _vm._u([
+                                        {
+                                          key: "activator",
+                                          fn: function(ref) {
+                                            var on = ref.on
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  {
+                                                    attrs: {
+                                                      label: "Time",
+                                                      "prepend-icon":
+                                                        "access_time",
+                                                      readonly: ""
+                                                    },
+                                                    model: {
+                                                      value: _vm.form.time,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "time",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression: "form.time"
+                                                    }
+                                                  },
+                                                  on
+                                                )
+                                              )
+                                            ]
+                                          }
+                                        }
+                                      ]),
+                                      model: {
+                                        value: _vm.modal2,
+                                        callback: function($$v) {
+                                          _vm.modal2 = $$v
+                                        },
+                                        expression: "modal2"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(" "),
+                                      _vm.modal2
+                                        ? _c(
+                                            "v-time-picker",
+                                            {
+                                              attrs: { "full-width": "" },
+                                              model: {
+                                                value: _vm.form.time,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.form,
+                                                    "time",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "form.time"
+                                              }
+                                            },
+                                            [
+                                              _c("v-spacer"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  attrs: {
+                                                    flat: "",
+                                                    color: "primary"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      _vm.modal2 = false
+                                                    }
+                                                  }
+                                                },
+                                                [_vm._v("Cancel")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  attrs: {
+                                                    flat: "",
+                                                    color: "primary"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.$refs.dialogTime.save(
+                                                        _vm.form.time
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [_vm._v("OK")]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _vm.errors.time
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.time[0]))]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c("v-text-field", {
+                            attrs: {
+                              label: "Place, Country",
+                              "prepend-icon": "room",
+                              type: "text"
+                            },
+                            model: {
+                              value: _vm.form.location,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "location", $$v)
+                              },
+                              expression: "form.location"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.errors.location
+                            ? _c("span", { staticClass: "red--text caption" }, [
+                                _vm._v(_vm._s(_vm.errors.location[0]))
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bottom time (minutes)",
+                                      "prepend-icon": "timer",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bottom_time,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bottom_time", $$v)
+                                      },
+                                      expression: "form.bottom_time"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bottom_time
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.bottom_time[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Max depth (meters)",
+                                      "prepend-icon": "trending_down",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.max_depth,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "max_depth", $$v)
+                                      },
+                                      expression: "form.max_depth"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.max_depth
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.max_depth[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Water temperature (celsius)",
+                                      "prepend-icon": "error_outline",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.water_temp,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "water_temp", $$v)
+                                      },
+                                      expression: "form.water_temp"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.water_temp
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.water_temp[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c(
+                                    "v-radio-group",
+                                    {
+                                      attrs: { row: "" },
+                                      model: {
+                                        value: _vm.form.day_night,
+                                        callback: function($$v) {
+                                          _vm.$set(_vm.form, "day_night", $$v)
+                                        },
+                                        expression: "form.day_night"
+                                      }
+                                    },
+                                    [
+                                      _c("v-radio", {
+                                        attrs: { label: "Day", value: 0 }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("v-radio", {
+                                        attrs: { label: "Night", value: 1 }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _vm.errors.day_night
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.day_night[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Visibility (meters)",
+                                      "prepend-icon": "visibility",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.visibility,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "visibility", $$v)
+                                      },
+                                      expression: "form.visibility"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.visibility
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.visibility[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.start,
+                                      label: "Dive start",
+                                      "prepend-icon": "directions_boat"
+                                    },
+                                    model: {
+                                      value: _vm.form.dive_start,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "dive_start", $$v)
+                                      },
+                                      expression: "form.dive_start"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.dive_start
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.dive_start[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.current,
+                                      label: "Current",
+                                      "prepend-icon": "waves"
+                                    },
+                                    model: {
+                                      value: _vm.form.current,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "current", $$v)
+                                      },
+                                      expression: "form.current"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.current
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.current[0]))]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.tanks,
+                                      label: "Tank type",
+                                      "prepend-icon": "battery_unknown"
+                                    },
+                                    model: {
+                                      value: _vm.form.tank_type,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "tank_type", $$v)
+                                      },
+                                      expression: "form.tank_type"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.tank_type
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.tank_type[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.capacity,
+                                      label: "Tank capacity",
+                                      "prepend-icon": "battery_unknown"
+                                    },
+                                    model: {
+                                      value: _vm.form.tank_capacity,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "tank_capacity", $$v)
+                                      },
+                                      expression: "form.tank_capacity"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.tank_capacity
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.tank_capacity[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bar at start",
+                                      "prepend-icon": "battery_full",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bar_start,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bar_start", $$v)
+                                      },
+                                      expression: "form.bar_start"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bar_start
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.bar_start[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bar at end",
+                                      "prepend-icon": "battery_alert",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bar_end,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bar_end", $$v)
+                                      },
+                                      expression: "form.bar_end"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bar_end
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.bar_end[0]))]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.gas,
+                                      label: "Gas mix",
+                                      "prepend-icon": "gradient"
+                                    },
+                                    model: {
+                                      value: _vm.form.gas_mix,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "gas_mix", $$v)
+                                      },
+                                      expression: "form.gas_mix"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.gas_mix
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.gas_mix[0]))]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Belt weights (kg)",
+                                      "prepend-icon": "info",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.belt_weights,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "belt_weights", $$v)
+                                      },
+                                      expression: "form.belt_weights"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.belt_weights
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.belt_weights[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "BCD weights (kg)",
+                                      "prepend-icon": "info",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bcd_weights,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bcd_weights", $$v)
+                                      },
+                                      expression: "form.bcd_weights"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bcd_weights
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.bcd_weights[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c("v-textarea", {
+                            attrs: {
+                              outline: "",
+                              box: "",
+                              label: "Description",
+                              "auto-grow": ""
+                            },
+                            model: {
+                              value: _vm.form.description,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "description", $$v)
+                              },
+                              expression: "form.description"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-spacer"),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            { attrs: { color: "primary", type: "submit" } },
+                            [_vm._v("Update")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40071,7 +41302,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "mt-2" }, [
                         _c("p", { staticClass: "subheading mb-0" }, [
-                          _vm._v("Date: " + _vm._s(_vm.dive.time))
+                          _vm._v("Date: " + _vm._s(_vm.dive.time_of_diving))
                         ]),
                         _vm._v(" "),
                         _c("p", { staticClass: "subheading mb-0" }, [
@@ -40104,20 +41335,22 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c(
-                    "v-btn",
-                    { attrs: { icon: "", small: "" } },
+                    "router-link",
+                    {
+                      staticStyle: { "text-decoration": "none" },
+                      attrs: {
+                        to: { name: "edit", params: { dive: _vm.dive } }
+                      }
+                    },
                     [
                       _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: { name: "edit", params: { dive: _vm.dive } }
-                          }
-                        },
+                        "v-btn",
+                        { staticClass: "ml-2", attrs: { round: "" } },
                         [
-                          _c("v-icon", { attrs: { color: "orange" } }, [
+                          _c("v-icon", { attrs: { left: "" } }, [
                             _vm._v("edit")
-                          ])
+                          ]),
+                          _vm._v("\n                  Edit\n              ")
                         ],
                         1
                       )
@@ -84384,7 +85617,7 @@ var routes = [{
   path: '/logout',
   component: _components_User_Logout__WEBPACK_IMPORTED_MODULE_8__["default"]
 }, {
-  path: '/edit/:id',
+  path: '/edit',
   name: 'edit',
   props: true,
   component: _components_Dive_EditDive__WEBPACK_IMPORTED_MODULE_9__["default"]
