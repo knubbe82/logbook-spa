@@ -2155,6 +2155,302 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/EditDive.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dive/EditDive.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['dive'],
+  data: function data() {
+    return {
+      form: {
+        date: new Date(this.dive.date).toISOString().substr(0, 10),
+        time: new Date(this.dive.date).toISOString().substr(11, 5),
+        location: this.dive.location,
+        bottom_time: this.dive.bottom_time,
+        max_depth: this.dive.max_depth,
+        water_temp: this.dive.water_temp,
+        day_night: this.dive.day_night,
+        visibility: this.dive.visibility,
+        dive_start: this.dive.dive_start,
+        current: this.dive.current,
+        tank_type: this.dive.tank_type,
+        tank_capacity: this.dive.tank_capacity,
+        bar_start: this.dive.bar_start,
+        bar_end: this.dive.bar_end,
+        gas_mix: this.dive.gas_mix,
+        belt_weights: this.dive.belt_weights,
+        bcd_weights: this.dive.bcd_weights,
+        description: this.dive.description
+      },
+      modal: false,
+      modal2: false,
+      start: ['cave', 'wreck', 'boat', 'shore'],
+      current: ['some', 'none', 'strong'],
+      tanks: ['alu', 'steal'],
+      capacity: ['10L', '12L', '15L', '18L'],
+      gas: ['Tx', 'EAN', 'Air'],
+      errors: {}
+    };
+  },
+  methods: {
+    updateDive: function updateDive() {
+      var _this = this;
+
+      axios.patch("/api/dive/".concat(this.dive.id), this.form).then(function (res) {
+        return _this.$router.push('/dives');
+      })["catch"](function (error) {
+        return console.log(error.response.data);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/SingleDive.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dive/SingleDive.vue?vue&type=script&lang=js& ***!
@@ -2165,6 +2461,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _HereMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../HereMap */ "./resources/js/components/HereMap.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -39944,6 +40246,983 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/EditDive.vue?vue&type=template&id=0034fc1e&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dive/EditDive.vue?vue&type=template&id=0034fc1e& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    [
+      _c(
+        "v-layout",
+        { attrs: { row: "", wrap: "" } },
+        [
+          _c(
+            "v-flex",
+            {
+              attrs: {
+                xs12: "",
+                sm8: "",
+                md8: "",
+                "offset-sm2": "",
+                "offset-md2": ""
+              }
+            },
+            [
+              _c(
+                "v-card",
+                { staticClass: "elevation-12" },
+                [
+                  _c(
+                    "v-toolbar",
+                    { attrs: { dark: "", color: "blue darken-4" } },
+                    [_c("v-toolbar-title", [_vm._v("Create dive")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-form",
+                    {
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.updateDive($event)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "v-card-text",
+                        [
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c(
+                                    "v-dialog",
+                                    {
+                                      ref: "dialog",
+                                      attrs: {
+                                        "return-value": _vm.form.date,
+                                        persistent: "",
+                                        lazy: "",
+                                        "full-width": "",
+                                        width: "290px"
+                                      },
+                                      on: {
+                                        "update:returnValue": function($event) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "date",
+                                            $event
+                                          )
+                                        },
+                                        "update:return-value": function(
+                                          $event
+                                        ) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "date",
+                                            $event
+                                          )
+                                        }
+                                      },
+                                      scopedSlots: _vm._u([
+                                        {
+                                          key: "activator",
+                                          fn: function(ref) {
+                                            var on = ref.on
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  {
+                                                    attrs: {
+                                                      label: "Date",
+                                                      "prepend-icon": "event",
+                                                      readonly: ""
+                                                    },
+                                                    model: {
+                                                      value: _vm.form.date,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "date",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression: "form.date"
+                                                    }
+                                                  },
+                                                  on
+                                                )
+                                              )
+                                            ]
+                                          }
+                                        }
+                                      ]),
+                                      model: {
+                                        value: _vm.modal,
+                                        callback: function($$v) {
+                                          _vm.modal = $$v
+                                        },
+                                        expression: "modal"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-date-picker",
+                                        {
+                                          attrs: { scrollable: "" },
+                                          model: {
+                                            value: _vm.form.date,
+                                            callback: function($$v) {
+                                              _vm.$set(_vm.form, "date", $$v)
+                                            },
+                                            expression: "form.date"
+                                          }
+                                        },
+                                        [
+                                          _c("v-spacer"),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                flat: "",
+                                                color: "primary"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  _vm.modal = false
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("Cancel")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                flat: "",
+                                                color: "primary"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.$refs.dialog.save(
+                                                    _vm.form.date
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("OK")]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _vm.errors.time
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.time[0]))]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("v-spacer"),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c(
+                                    "v-dialog",
+                                    {
+                                      ref: "dialogTime",
+                                      attrs: {
+                                        "return-value": _vm.form.time,
+                                        persistent: "",
+                                        lazy: "",
+                                        "full-width": "",
+                                        width: "290px"
+                                      },
+                                      on: {
+                                        "update:returnValue": function($event) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "time",
+                                            $event
+                                          )
+                                        },
+                                        "update:return-value": function(
+                                          $event
+                                        ) {
+                                          return _vm.$set(
+                                            _vm.form,
+                                            "time",
+                                            $event
+                                          )
+                                        }
+                                      },
+                                      scopedSlots: _vm._u([
+                                        {
+                                          key: "activator",
+                                          fn: function(ref) {
+                                            var on = ref.on
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  {
+                                                    attrs: {
+                                                      label: "Time",
+                                                      "prepend-icon":
+                                                        "access_time",
+                                                      readonly: ""
+                                                    },
+                                                    model: {
+                                                      value: _vm.form.time,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "time",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression: "form.time"
+                                                    }
+                                                  },
+                                                  on
+                                                )
+                                              )
+                                            ]
+                                          }
+                                        }
+                                      ]),
+                                      model: {
+                                        value: _vm.modal2,
+                                        callback: function($$v) {
+                                          _vm.modal2 = $$v
+                                        },
+                                        expression: "modal2"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(" "),
+                                      _vm.modal2
+                                        ? _c(
+                                            "v-time-picker",
+                                            {
+                                              attrs: { "full-width": "" },
+                                              model: {
+                                                value: _vm.form.time,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.form,
+                                                    "time",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "form.time"
+                                              }
+                                            },
+                                            [
+                                              _c("v-spacer"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  attrs: {
+                                                    flat: "",
+                                                    color: "primary"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      _vm.modal2 = false
+                                                    }
+                                                  }
+                                                },
+                                                [_vm._v("Cancel")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  attrs: {
+                                                    flat: "",
+                                                    color: "primary"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.$refs.dialogTime.save(
+                                                        _vm.form.time
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [_vm._v("OK")]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _vm.errors.time
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.time[0]))]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c("v-text-field", {
+                            attrs: {
+                              label: "Place, Country",
+                              "prepend-icon": "room",
+                              type: "text"
+                            },
+                            model: {
+                              value: _vm.form.location,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "location", $$v)
+                              },
+                              expression: "form.location"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.errors.location
+                            ? _c("span", { staticClass: "red--text caption" }, [
+                                _vm._v(_vm._s(_vm.errors.location[0]))
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bottom time (minutes)",
+                                      "prepend-icon": "timer",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bottom_time,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bottom_time", $$v)
+                                      },
+                                      expression: "form.bottom_time"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bottom_time
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.bottom_time[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Max depth (meters)",
+                                      "prepend-icon": "trending_down",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.max_depth,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "max_depth", $$v)
+                                      },
+                                      expression: "form.max_depth"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.max_depth
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.max_depth[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Water temperature (celsius)",
+                                      "prepend-icon": "error_outline",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.water_temp,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "water_temp", $$v)
+                                      },
+                                      expression: "form.water_temp"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.water_temp
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.water_temp[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c(
+                                    "v-radio-group",
+                                    {
+                                      attrs: { row: "" },
+                                      model: {
+                                        value: _vm.form.day_night,
+                                        callback: function($$v) {
+                                          _vm.$set(_vm.form, "day_night", $$v)
+                                        },
+                                        expression: "form.day_night"
+                                      }
+                                    },
+                                    [
+                                      _c("v-radio", {
+                                        attrs: { label: "Day", value: 0 }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("v-radio", {
+                                        attrs: { label: "Night", value: 1 }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _vm.errors.day_night
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.day_night[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Visibility (meters)",
+                                      "prepend-icon": "visibility",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.visibility,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "visibility", $$v)
+                                      },
+                                      expression: "form.visibility"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.visibility
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.visibility[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.start,
+                                      label: "Dive start",
+                                      "prepend-icon": "directions_boat"
+                                    },
+                                    model: {
+                                      value: _vm.form.dive_start,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "dive_start", $$v)
+                                      },
+                                      expression: "form.dive_start"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.dive_start
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.dive_start[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm3: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.current,
+                                      label: "Current",
+                                      "prepend-icon": "waves"
+                                    },
+                                    model: {
+                                      value: _vm.form.current,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "current", $$v)
+                                      },
+                                      expression: "form.current"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.current
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.current[0]))]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.tanks,
+                                      label: "Tank type",
+                                      "prepend-icon": "battery_unknown"
+                                    },
+                                    model: {
+                                      value: _vm.form.tank_type,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "tank_type", $$v)
+                                      },
+                                      expression: "form.tank_type"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.tank_type
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.tank_type[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.capacity,
+                                      label: "Tank capacity",
+                                      "prepend-icon": "battery_unknown"
+                                    },
+                                    model: {
+                                      value: _vm.form.tank_capacity,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "tank_capacity", $$v)
+                                      },
+                                      expression: "form.tank_capacity"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.tank_capacity
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.tank_capacity[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bar at start",
+                                      "prepend-icon": "battery_full",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bar_start,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bar_start", $$v)
+                                      },
+                                      expression: "form.bar_start"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bar_start
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.bar_start[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Bar at end",
+                                      "prepend-icon": "battery_alert",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bar_end,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bar_end", $$v)
+                                      },
+                                      expression: "form.bar_end"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bar_end
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.bar_end[0]))]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm4: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.gas,
+                                      label: "Gas mix",
+                                      "prepend-icon": "gradient"
+                                    },
+                                    model: {
+                                      value: _vm.form.gas_mix,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "gas_mix", $$v)
+                                      },
+                                      expression: "form.gas_mix"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.gas_mix
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.gas_mix[0]))]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "pa-2",
+                              attrs: { row: "", wrap: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Belt weights (kg)",
+                                      "prepend-icon": "info",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.belt_weights,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "belt_weights", $$v)
+                                      },
+                                      expression: "form.belt_weights"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.belt_weights
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.belt_weights[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "BCD weights (kg)",
+                                      "prepend-icon": "info",
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.form.bcd_weights,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "bcd_weights", $$v)
+                                      },
+                                      expression: "form.bcd_weights"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm.errors.bcd_weights
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.errors.bcd_weights[0])
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-divider"),
+                          _vm._v(" "),
+                          _c("v-textarea", {
+                            attrs: {
+                              outline: "",
+                              box: "",
+                              label: "Description",
+                              "auto-grow": ""
+                            },
+                            model: {
+                              value: _vm.form.description,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "description", $$v)
+                              },
+                              expression: "form.description"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-actions",
+                        [
+                          _c("v-spacer"),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            { attrs: { color: "primary", type: "submit" } },
+                            [_vm._v("Update")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/SingleDive.vue?vue&type=template&id=3e453a5c&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dive/SingleDive.vue?vue&type=template&id=3e453a5c& ***!
@@ -40023,7 +41302,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "mt-2" }, [
                         _c("p", { staticClass: "subheading mb-0" }, [
-                          _vm._v("Date: " + _vm._s(_vm.dive.time))
+                          _vm._v("Date: " + _vm._s(_vm.dive.time_of_diving))
                         ]),
                         _vm._v(" "),
                         _c("p", { staticClass: "subheading mb-0" }, [
@@ -40051,6 +41330,30 @@ var render = function() {
                         _vm._v("arrow_forward")
                       ]),
                       _vm._v("\n              View Dive\n            ")
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticStyle: { "text-decoration": "none" },
+                      attrs: {
+                        to: { name: "edit", params: { dive: _vm.dive } }
+                      }
+                    },
+                    [
+                      _c(
+                        "v-btn",
+                        { staticClass: "ml-2", attrs: { round: "" } },
+                        [
+                          _c("v-icon", { attrs: { left: "" } }, [
+                            _vm._v("edit")
+                          ]),
+                          _vm._v("\n                  Edit\n              ")
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
@@ -84279,6 +85582,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_User_Signin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/User/Signin */ "./resources/js/components/User/Signin.vue");
 /* harmony import */ var _components_User_Signup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/User/Signup */ "./resources/js/components/User/Signup.vue");
 /* harmony import */ var _components_User_Logout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/User/Logout */ "./resources/js/components/User/Logout.vue");
+/* harmony import */ var _components_Dive_EditDive__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Dive/EditDive */ "./resources/js/components/Dive/EditDive.vue");
+
 
 
 
@@ -84311,6 +85616,11 @@ var routes = [{
 }, {
   path: '/logout',
   component: _components_User_Logout__WEBPACK_IMPORTED_MODULE_8__["default"]
+}, {
+  path: '/edit',
+  name: 'edit',
+  props: true,
+  component: _components_Dive_EditDive__WEBPACK_IMPORTED_MODULE_9__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes,
@@ -84570,6 +85880,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateDive_vue_vue_type_template_id_62b46310___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateDive_vue_vue_type_template_id_62b46310___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Dive/EditDive.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/Dive/EditDive.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EditDive_vue_vue_type_template_id_0034fc1e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditDive.vue?vue&type=template&id=0034fc1e& */ "./resources/js/components/Dive/EditDive.vue?vue&type=template&id=0034fc1e&");
+/* harmony import */ var _EditDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditDive.vue?vue&type=script&lang=js& */ "./resources/js/components/Dive/EditDive.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditDive_vue_vue_type_template_id_0034fc1e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditDive_vue_vue_type_template_id_0034fc1e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Dive/EditDive.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Dive/EditDive.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/Dive/EditDive.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./EditDive.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/EditDive.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditDive_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Dive/EditDive.vue?vue&type=template&id=0034fc1e&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/Dive/EditDive.vue?vue&type=template&id=0034fc1e& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditDive_vue_vue_type_template_id_0034fc1e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./EditDive.vue?vue&type=template&id=0034fc1e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dive/EditDive.vue?vue&type=template&id=0034fc1e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditDive_vue_vue_type_template_id_0034fc1e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditDive_vue_vue_type_template_id_0034fc1e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -85197,8 +86576,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/nikola42zivkovic/dev/logbook-spa/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/nikola42zivkovic/dev/logbook-spa/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/nikolazivkovic/dev/logbook/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/nikolazivkovic/dev/logbook/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

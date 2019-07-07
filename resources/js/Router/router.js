@@ -8,6 +8,7 @@ import Profile from '../components/User/Profile'
 import Signin from '../components/User/Signin'
 import Signup from '../components/User/Signup'
 import Logout from '../components/User/Logout'
+import EditDive from '../components/Dive/EditDive'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,7 @@ const routes = [
     { path: '/signin', component: Signin },
     { path: '/signup', component: Signup },
     { path: '/logout', component: Logout },
+    { path: '/edit', name: 'edit', props: true, component: EditDive },
   ]
 
 const router = new VueRouter({
