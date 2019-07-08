@@ -2557,6 +2557,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -41329,13 +41330,26 @@ var render = function() {
                                 key: "badge",
                                 fn: function() {
                                   return [
-                                    _c("span", [_vm._v(_vm._s(_vm.loop + 1))])
+                                    _c("span", [
+                                      _vm._v(_vm._s(_vm.dive.number))
+                                    ])
                                   ]
                                 },
                                 proxy: true
                               }
                             ])
-                          })
+                          }),
+                          _vm._v(" "),
+                          _c("v-icon", { staticClass: "ml-4" }, [
+                            _vm._v("calendar_today")
+                          ]),
+                          _vm._v(" " + _vm._s(_vm.dive.date_of_diving) + ", "),
+                          _c("v-icon", [_vm._v("access_time")]),
+                          _vm._v(
+                            " " +
+                              _vm._s(_vm.dive.time_of_diving) +
+                              "\n              "
+                          )
                         ],
                         1
                       ),
@@ -41343,17 +41357,43 @@ var render = function() {
                       _c("v-divider"),
                       _vm._v(" "),
                       _c("div", { staticClass: "mt-2" }, [
-                        _c("p", { staticClass: "subheading mb-0" }, [
-                          _vm._v("Date: " + _vm._s(_vm.dive.time_of_diving))
-                        ]),
+                        _c(
+                          "p",
+                          { staticClass: "subheading mb-0" },
+                          [
+                            _c("v-icon", [_vm._v("place")]),
+                            _vm._v(" " + _vm._s(_vm.dive.location))
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("p", { staticClass: "subheading mb-0" }, [
-                          _vm._v("Location: " + _vm._s(_vm.dive.location))
-                        ]),
+                        _c(
+                          "p",
+                          { staticClass: "subheading mb-0" },
+                          [
+                            _c("v-icon", [_vm._v("timer")]),
+                            _vm._v(
+                              " " + _vm._s(_vm.dive.bottom_time) + " minutes, "
+                            ),
+                            _c("v-icon", [_vm._v("trending_down")]),
+                            _vm._v(
+                              " " + _vm._s(_vm.dive.max_depth) + " meters, "
+                            ),
+                            _c("v-icon", [_vm._v("error_outline")]),
+                            _vm._v(" " + _vm._s(_vm.dive.water_temp) + " "),
+                            _c("span", [_vm._v("°")])
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("span", [
-                          _vm._v("Opis: " + _vm._s(_vm.dive.description) + " ")
-                        ])
+                        _c(
+                          "span",
+                          [
+                            _c("v-icon", [_vm._v("notes")]),
+                            _vm._v(" " + _vm._s(_vm.dive.description) + " ")
+                          ],
+                          1
+                        )
                       ])
                     ],
                     1
@@ -41474,17 +41514,19 @@ var render = function() {
         "div",
         { staticClass: "text-xs-center" },
         [
-          _c("v-pagination", {
-            attrs: { length: _vm.pagination.total, circle: "" },
-            on: { input: _vm.onPageChange },
-            model: {
-              value: _vm.pagination.current,
-              callback: function($$v) {
-                _vm.$set(_vm.pagination, "current", $$v)
-              },
-              expression: "pagination.current"
-            }
-          })
+          _vm.dives.length
+            ? _c("v-pagination", {
+                attrs: { length: _vm.pagination.total, circle: "" },
+                on: { input: _vm.onPageChange },
+                model: {
+                  value: _vm.pagination.current,
+                  callback: function($$v) {
+                    _vm.$set(_vm.pagination, "current", $$v)
+                  },
+                  expression: "pagination.current"
+                }
+              })
+            : _vm._e()
         ],
         1
       )
