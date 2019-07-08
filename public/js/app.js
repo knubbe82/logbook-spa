@@ -2507,11 +2507,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['dive', 'loop'],
   components: {
     HereMap: _HereMap__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    destroy: function destroy() {
+      EventBus.$emit('deleteDive', this.loop);
+    }
   }
 });
 
@@ -2554,9 +2562,21 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
+    this.listen();
     axios.get('/api/dive').then(function (res) {
       return _this.dives = res.data.data;
     });
+  },
+  methods: {
+    listen: function listen() {
+      var _this2 = this;
+
+      EventBus.$on('deleteDive', function (index) {
+        axios["delete"]("/api/dive/".concat(_this2.dives[index].id)).then(function (res) {
+          _this2.dives.splice(index, 1);
+        });
+      });
+    }
   }
 });
 
@@ -41334,6 +41354,8 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
+                  _c("v-spacer"),
+                  _vm._v(" "),
                   _c(
                     "router-link",
                     {
@@ -41345,15 +41367,25 @@ var render = function() {
                     [
                       _c(
                         "v-btn",
-                        { staticClass: "ml-2", attrs: { round: "" } },
+                        { attrs: { icon: "" } },
                         [
-                          _c("v-icon", { attrs: { left: "" } }, [
+                          _c("v-icon", { attrs: { color: "orange" } }, [
                             _vm._v("edit")
-                          ]),
-                          _vm._v("\n                  Edit\n              ")
+                          ])
                         ],
                         1
                       )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "" }, on: { click: _vm.destroy } },
+                    [
+                      _c("v-icon", { attrs: { color: "red" } }, [
+                        _vm._v("delete")
+                      ])
                     ],
                     1
                   )
@@ -86576,8 +86608,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/nikolazivkovic/dev/logbook/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/nikolazivkovic/dev/logbook/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/nikola42zivkovic/dev/logbook-spa/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/nikola42zivkovic/dev/logbook-spa/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

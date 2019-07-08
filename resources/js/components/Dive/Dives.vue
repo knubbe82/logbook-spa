@@ -23,8 +23,19 @@ import SingleDive from './SingleDive'
       }
     },
     created() {
+      this.listen()
       axios.get('/api/dive')
       .then(res => this.dives = res.data.data)
+    },
+    methods: {
+      listen() {
+        EventBus.$on('deleteDive', (index) => {
+          axios.delete(`/api/dive/${this.dives[index].id}`)
+            .then(res => {
+                this.dives.splice(index, 1)
+            })
+        })
+      }
     }
   }
 </script>

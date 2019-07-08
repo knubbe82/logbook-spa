@@ -32,12 +32,15 @@
                   <v-icon left>arrow_forward</v-icon>
                   View Dive
                 </v-btn>
+                <v-spacer></v-spacer>
                 <router-link :to="{name: 'edit', params: {dive}}" style="text-decoration: none">
-                  <v-btn round class="ml-2">
-                      <v-icon left>edit</v-icon>
-                      Edit
+                  <v-btn icon>
+                      <v-icon color="orange">edit</v-icon>
                   </v-btn>
                 </router-link>
+                <v-btn icon @click="destroy">
+                    <v-icon color="red">delete</v-icon>
+                </v-btn>
               </v-card-actions>
             </v-flex>
           </v-layout>
@@ -49,7 +52,12 @@ import HereMap from '../HereMap'
 
 export default {
     props: ['dive', 'loop'],
-    components: {HereMap}
+    components: {HereMap},
+    methods: {
+      destroy() {
+        EventBus.$emit('deleteDive', this.loop)
+      }
+    }
 }
 </script>
 
