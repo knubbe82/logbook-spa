@@ -51,6 +51,7 @@ class DiveController extends Controller
     {
         $input = $request->except('date');
         $input['time'] = Carbon::createFromTimestamp(strtotime( $request['date'] . $input['time'] . ":00"));
+        $input['number'] = auth()->user()->dives()->count() + 1;
 
         $dive = auth()->user()->dives()->create($input);
     

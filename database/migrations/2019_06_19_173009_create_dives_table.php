@@ -15,6 +15,7 @@ class CreateDivesTable extends Migration
     {
         Schema::create('dives', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('number');
             $table->dateTime('time');
             $table->string('location');
             $table->string('bottom_time');

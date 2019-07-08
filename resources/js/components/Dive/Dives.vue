@@ -10,6 +10,7 @@
   </v-layout>
   <div class="text-xs-center">
     <v-pagination
+      v-if="dives.length"
       v-model="pagination.current"
       :length="pagination.total"
       circle
