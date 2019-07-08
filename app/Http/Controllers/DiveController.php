@@ -28,7 +28,7 @@ class DiveController extends Controller
      */
     public function index()
     {
-        return DiveResource::collection(auth()->user()->dives()->latest()->get());
+        return DiveResource::collection(auth()->user()->dives()->latest()->paginate(5));
     }
 
     /**

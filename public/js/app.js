@@ -2549,6 +2549,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2556,26 +2564,40 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      dives: {}
+      dives: {},
+      pagination: {
+        current: 1,
+        total: 0
+      }
     };
   },
   created: function created() {
-    var _this = this;
+    this.listen(); // axios.get('/api/dive')
+    // .then(res => this.dives = res.data.data)
 
-    this.listen();
-    axios.get('/api/dive').then(function (res) {
-      return _this.dives = res.data.data;
-    });
+    this.getDives();
   },
   methods: {
     listen: function listen() {
-      var _this2 = this;
+      var _this = this;
 
       EventBus.$on('deleteDive', function (index) {
-        axios["delete"]("/api/dive/".concat(_this2.dives[index].id)).then(function (res) {
-          _this2.dives.splice(index, 1);
+        axios["delete"]("/api/dive/".concat(_this.dives[index].id)).then(function (res) {
+          _this.dives.splice(index, 1);
         });
       });
+    },
+    getDives: function getDives() {
+      var _this2 = this;
+
+      axios.get('/api/dive?page=' + this.pagination.current).then(function (res) {
+        _this2.dives = res.data.data;
+        _this2.pagination.current = res.data.meta.current_page;
+        _this2.pagination.total = res.data.meta.last_page;
+      });
+    },
+    onPageChange: function onPageChange() {
+      this.getDives();
     }
   }
 });
@@ -41444,6 +41466,25 @@ var render = function() {
             }),
             1
           )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-xs-center" },
+        [
+          _c("v-pagination", {
+            attrs: { length: _vm.pagination.total, circle: "" },
+            on: { input: _vm.onPageChange },
+            model: {
+              value: _vm.pagination.current,
+              callback: function($$v) {
+                _vm.$set(_vm.pagination, "current", $$v)
+              },
+              expression: "pagination.current"
+            }
+          })
         ],
         1
       )

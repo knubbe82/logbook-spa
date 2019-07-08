@@ -8,6 +8,14 @@
       </v-card>
     </v-flex>
   </v-layout>
+  <div class="text-xs-center">
+    <v-pagination
+      v-model="pagination.current"
+      :length="pagination.total"
+      circle
+      @input="onPageChange"
+    ></v-pagination>
+  </div>
 </v-container>
            
 </template>
@@ -19,13 +27,18 @@ import SingleDive from './SingleDive'
     components: {SingleDive},
     data () {
       return {
-        dives: {}
+        dives: {},
+        pagination: {
+          current: 1,
+          total: 0
+        }
       }
     },
     created() {
       this.listen()
-      axios.get('/api/dive')
-      .then(res => this.dives = res.data.data)
+      // axios.get('/api/dive')
+      // .then(res => this.dives = res.data.data)
+      this.getDives()
     },
     methods: {
       listen() {
@@ -35,6 +48,17 @@ import SingleDive from './SingleDive'
                 this.dives.splice(index, 1)
             })
         })
+      },
+      getDives() {
+        axios.get('/api/dive?page=' + this.pagination.current)
+        .then(res => {
+          this.dives = res.data.data
+          this.pagination.current = res.data.meta.current_page
+          this.pagination.total = res.data.meta.last_page
+        })
+      },
+      onPageChange() {
+        this.getDives()
       }
     }
   }
