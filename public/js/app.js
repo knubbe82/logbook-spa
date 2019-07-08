@@ -2436,6 +2436,11 @@ __webpack_require__.r(__webpack_exports__);
       errors: {}
     };
   },
+  // beforeMount() {
+  //     if(!this.dive) {
+  //         this.$router.push('/dives')
+  //     }
+  // },
   methods: {
     updateDive: function updateDive() {
       var _this = this;

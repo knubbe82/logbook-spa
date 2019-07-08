@@ -22,7 +22,7 @@
                   <v-divider></v-divider>
                   <div class="mt-2">
                   <p class="subheading mb-0"><v-icon>place</v-icon> {{ dive.location }}</p>
-                  <p class="subheading mb-0"><v-icon>timer</v-icon> {{ dive.bottom_time }} minutes, <v-icon>trending_down</v-icon> {{ dive.max_depth }} meters, <v-icon>error_outline</v-icon> {{ dive.water_temp }} <span>&deg</span></p>
+                  <p class="subheading mb-0"><v-icon>timer</v-icon> {{ dive.bottom_time }} minutes, <v-icon>trending_down</v-icon> {{ dive.max_depth }} meters, <v-icon>error_outline</v-icon> {{ dive.water_temp }} <span>&deg;</span></p>
                   <span><v-icon>notes</v-icon> {{ dive.description }} </span>
                   </div>
                 </div>

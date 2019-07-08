@@ -271,6 +271,11 @@ export default {
             errors: {}
         }
     },
+    // beforeMount() {
+    //     if(!this.dive) {
+    //         this.$router.push('/dives')
+    //     }
+    // },
     methods: {
         updateDive() {
             axios.patch(`/api/dive/${this.dive.id}`, this.form)
