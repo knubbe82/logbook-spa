@@ -15,10 +15,24 @@ class CreateDivesTable extends Migration
     {
         Schema::create('dives', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('location');
+            $table->unsignedInteger('number');
             $table->dateTime('time');
-            $table->text('description');
+            $table->string('location');
+            $table->string('bottom_time');
+            $table->string('max_depth');
+            $table->integer('water_temp');
+            $table->boolean('day_night')->default(true);
+            $table->integer('visibility');
+            $table->string('dive_start');
+            $table->string('current');
+            $table->string('tank_type');
+            $table->string('tank_capacity');
+            $table->integer('bar_start');
+            $table->integer('bar_end');
+            $table->string('gas_mix');
+            $table->string('belt_weights')->nullable();
+            $table->string('bcd_weights')->nullable();
+            $table->text('description')->nullable();
             $table->unsignedInteger('user_id');
             $table->timestamps();
         });

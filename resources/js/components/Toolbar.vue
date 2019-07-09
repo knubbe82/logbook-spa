@@ -7,7 +7,7 @@
       app
     >
       <v-list dense>
-        <v-list-tile v-for="item in items" :key="item.text" router :to="item.link">
+        <v-list-tile v-for="item in items" :key="item.text" router :to="item.link" v-if="item.show">
           <v-list-tile-action>
             <v-icon>{{item.icon}}</v-icon>
           </v-list-tile-action>
@@ -51,9 +51,9 @@ export default {
       dialog: false,
       drawer: null,
       items: [
-        { icon: 'add', text: 'Add Dive', link: '/dive/new', show: User.loggedIn() },
+        { icon: 'add', text: 'Add Dive', link: '/create', show: User.loggedIn() },
         { icon: 'library_books', text: 'My Dives', link: '/dives', show: User.loggedIn() },
-        { icon: 'person', text: 'Profile', link: '/profile', show: User.loggedIn() },
+        // { icon: 'person', text: 'Profile', link: '/profile', show: User.loggedIn() },
         { icon: 'face', text: 'Sign up', link: '/signup', show: !User.loggedIn() },
         { icon: 'lock_open', text: 'Sign in', link: '/signin', show: !User.loggedIn() },
         { icon: 'exit_to_app', text: 'Logout', link: '/logout', show: User.loggedIn() },

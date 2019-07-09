@@ -6,6 +6,9 @@ use App\Model\Dive;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\DiveResource;
+use Carbon\Carbon;
+use App\Http\Requests\DiveStoreRequest;
+use App\Http\Requests\DiveUpdateRequest;
 
 class DiveController extends Controller
 {
@@ -26,7 +29,7 @@ class DiveController extends Controller
      */
     public function index()
     {
-        return DiveResource::collection(Dive::latest()->get());
+        return DiveResource::collection(auth()->user()->dives()->latest()->paginate(5));
     }
 
     /**
@@ -45,10 +48,13 @@ class DiveController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DiveStoreRequest $request)
     {
-        // auth()->user()->dive()->create($request->all());
-        Dive::create($request->all());
+        $input = $request->except('date');
+        $input['time'] = Carbon::createFromTimestamp(strtotime( $request['date'] . $input['time'] . ":00"));
+        $input['number'] = auth()->user()->dives()->count() + 1;
+
+        auth()->user()->dives()->create($input);
     
         return response('Created', Response::HTTP_CREATED);
     }
@@ -82,9 +88,12 @@ class DiveController extends Controller
      * @param  \App\Model\Dive  $dive
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dive $dive)
+    public function update(DiveUpdateRequest $request, Dive $dive)
     {
-        $dive->update($request->all());
+        $input = $request->except('date');
+        $input['time'] = Carbon::createFromTimestamp(strtotime( $request['date'] . $input['time'] . ":00"));
+
+        $dive->update($input);
 
         return response('Update', Response::HTTP_ACCEPTED);
     }

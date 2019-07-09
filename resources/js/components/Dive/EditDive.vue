@@ -6,7 +6,7 @@
                 <v-toolbar dark color="blue darken-4">
                     <v-toolbar-title>Create dive</v-toolbar-title>
                 </v-toolbar>
-                <v-form @submit.prevent="createDive">
+                <v-form @submit.prevent="updateDive">
                 <v-card-text>
                     <v-layout row wrap class="pa-2">
                         <v-flex xs12 sm6>
@@ -111,8 +111,8 @@
                     <v-layout row wrap class="pa-2">
                         <v-flex xs12 sm3>
                             <v-radio-group v-model="form.day_night" row>
-                                <v-radio label="Day" value="0"></v-radio>
-                                <v-radio label="Night" value="1"></v-radio>
+                                <v-radio label="Day" :value="0"></v-radio>
+                                <v-radio label="Night" :value="1"></v-radio>
                             </v-radio-group>
                             <span class="red--text caption" v-if="errors.day_night">{{ errors.day_night[0] }}</span>
                         </v-flex>
@@ -227,55 +227,62 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" type="submit">Create</v-btn>
+                    <v-btn color="primary" type="submit">Update</v-btn>
                 </v-card-actions>
                 </v-form>
                 </v-card>
             </v-flex>
         </v-layout>
     </v-container>
-
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      form: {
-        date: new Date().toISOString().substr(0, 10),
-        time: null,
-        location: null,
-        bottom_time: null,
-        max_depth: null,
-        water_temp: null,
-        day_night: null,
-        visibility: null,
-        dive_start: null,
-        current: null,
-        tank_type: null,
-        tank_capacity: null,
-        bar_start: null,
-        bar_end: null,
-        gas_mix: null,
-        belt_weights: null,
-        bcd_weights: null,
-        description: null,
-      },
-        modal: false,
-        modal2: false,
-        start: ['cave', 'wreck', 'boat', 'shore'],
-        current: ['some', 'none', 'strong'],
-        tanks: ['alu', 'steal'],
-        capacity: ['10L', '12L', '15L', '18L'],
-        gas: ['Tx', 'EAN', 'Air'],
-        errors: {}
-     
-    }),
+export default {
+    props: ['dive'],
+    data() {
+        return {
+            form: {
+                date: new Date(this.dive.date).toISOString().substr(0, 10),
+                time: new Date(this.dive.date).toISOString().substr(11, 5),
+                location: this.dive.location,
+                bottom_time: this.dive.bottom_time,
+                max_depth: this.dive.max_depth,
+                water_temp: this.dive.water_temp,
+                day_night: this.dive.day_night,
+                visibility: this.dive.visibility,
+                dive_start: this.dive.dive_start,
+                current: this.dive.current,
+                tank_type: this.dive.tank_type,
+                tank_capacity: this.dive.tank_capacity,
+                bar_start: this.dive.bar_start,
+                bar_end: this.dive.bar_end,
+                gas_mix: this.dive.gas_mix,
+                belt_weights: this.dive.belt_weights,
+                bcd_weights: this.dive.bcd_weights,
+                description: this.dive.description,
+            }, 
+            modal: false,
+            modal2: false,
+            start: ['cave', 'wreck', 'boat', 'shore'],
+            current: ['some', 'none', 'strong'],
+            tanks: ['alu', 'steal'],
+            capacity: ['10L', '12L', '15L', '18L'],
+            gas: ['Tx', 'EAN', 'Air'],
+            errors: {}
+        }
+    },
+    // beforeMount() {
+    //     if(!this.dive) {
+    //         this.$router.push('/dives')
+    //     }
+    // },
     methods: {
-        createDive() {
-            axios.post('/api/dive', this.form)
-            .then(res => this.$router.push('/dives'))
-            .catch(error => this.errors = error.response.data.errors)
+        updateDive() {
+            axios.patch(`/api/dive/${this.dive.id}`, this.form)
+                .then(res => this.$router.push('/dives'))
+                .catch(error => this.errors = error.response.data.errors)
         }
     }
-  }
+}
 </script>
+
