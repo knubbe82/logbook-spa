@@ -2448,7 +2448,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.patch("/api/dive/".concat(this.dive.id), this.form).then(function (res) {
         return _this.$router.push('/dives');
       })["catch"](function (error) {
-        return console.log(error.response.data);
+        return _this.errors = error.response.data.errors;
       });
     }
   }

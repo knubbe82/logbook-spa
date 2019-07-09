@@ -280,7 +280,7 @@ export default {
         updateDive() {
             axios.patch(`/api/dive/${this.dive.id}`, this.form)
                 .then(res => this.$router.push('/dives'))
-                .catch(error => console.log(error.response.data))
+                .catch(error => this.errors = error.response.data.errors)
         }
     }
 }
