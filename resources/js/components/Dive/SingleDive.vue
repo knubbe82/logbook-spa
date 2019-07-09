@@ -28,7 +28,8 @@
                 </div>
               </v-card-title>
               <v-card-actions>
-                <v-btn round class="primary">
+                <v-btn round class="primary" @click.prevent="showDive=true">
+                  <show-dive :dive="dive" v-model="showDive"></show-dive>
                   <v-icon left>arrow_forward</v-icon>
                   View Dive
                 </v-btn>
@@ -49,10 +50,16 @@
 
 <script>
 import HereMap from '../HereMap'
+import ShowDive from './ShowDive'
 
 export default {
     props: ['dive', 'loop'],
-    components: {HereMap},
+    components: {HereMap, ShowDive},
+    data() {
+      return {
+        showDive: false
+      }
+    },
     methods: {
       destroy() {
         EventBus.$emit('deleteDive', this.loop)
