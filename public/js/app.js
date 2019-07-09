@@ -2899,12 +2899,8 @@ __webpack_require__.r(__webpack_exports__);
         text: 'My Dives',
         link: '/dives',
         show: User.loggedIn()
-      }, {
-        icon: 'person',
-        text: 'Profile',
-        link: '/profile',
-        show: User.loggedIn()
-      }, {
+      }, // { icon: 'person', text: 'Profile', link: '/profile', show: User.loggedIn() },
+      {
         icon: 'face',
         text: 'Sign up',
         link: '/signup',
