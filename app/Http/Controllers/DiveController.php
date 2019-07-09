@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\DiveResource;
 use Carbon\Carbon;
 use App\Http\Requests\DiveStoreRequest;
+use App\Http\Requests\DiveUpdateRequest;
 
 class DiveController extends Controller
 {
@@ -53,7 +54,7 @@ class DiveController extends Controller
         $input['time'] = Carbon::createFromTimestamp(strtotime( $request['date'] . $input['time'] . ":00"));
         $input['number'] = auth()->user()->dives()->count() + 1;
 
-        $dive = auth()->user()->dives()->create($input);
+        auth()->user()->dives()->create($input);
     
         return response('Created', Response::HTTP_CREATED);
     }
@@ -87,7 +88,7 @@ class DiveController extends Controller
      * @param  \App\Model\Dive  $dive
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dive $dive)
+    public function update(DiveUpdateRequest $request, Dive $dive)
     {
         $input = $request->except('date');
         $input['time'] = Carbon::createFromTimestamp(strtotime( $request['date'] . $input['time'] . ":00"));
