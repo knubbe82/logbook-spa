@@ -2760,7 +2760,8 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.platform = new H.service.Platform({
       "app_id": this.appId,
-      "app_code": this.appCode
+      "app_code": this.appCode,
+      "useHTTPS": true
     });
     this.geocoder = this.platform.getGeocodingService();
   },
