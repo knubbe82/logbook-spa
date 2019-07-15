@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Model\Dive;
+use Carbon\Carbon;
 
 class DiveStoreRequest extends FormRequest
 {
@@ -28,18 +30,6 @@ class DiveStoreRequest extends FormRequest
             'location'          => 'required',
             'bottom_time'       => 'required|numeric',
             'max_depth'         => 'required|numeric',
-            'water_temp'        => 'required|numeric',
-            'day_night'         => 'required',
-            'visibility'        => 'required|numeric',
-            'dive_start'        => 'required',
-            'current'           => 'required',
-            'tank_type'         => 'required',
-            'tank_capacity'     => 'required',
-            'bar_start'         => 'required|numeric',
-            'bar_end'           => 'required|numeric',
-            'gas_mix'           => 'required',
-            'belt_weights'      => 'required_without:bcd_weights',
-            'bcd_weights'       => 'required_without:belt_weights',
         ];
     }
 }
