@@ -35,6 +35,7 @@
                                 </v-date-picker>
                             </v-dialog>
                             <span class="red--text caption" v-if="errors.time">{{ errors.time[0] }}</span>
+                            <span class="red--text caption" v-if="errors.date">{{ errors.date[0] }}</span>
                         </v-flex>
                     <v-spacer></v-spacer>
                         <v-flex xs12 sm6>
