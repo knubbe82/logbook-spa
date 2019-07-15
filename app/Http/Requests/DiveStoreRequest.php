@@ -25,11 +25,30 @@ class DiveStoreRequest extends FormRequest
      */
     public function rules()
     {
+        $latestTime = Dive::latest()->first()->time ?? null;
+        $latestDate = null;
+        if($latestTime) {
+            $latestDate = Carbon::parse($latestTime)->toDateString();
+        }
+
+        if($latestDate) {
+            return [
+                'date'              => 'before_or_equal:now',
+                'date'              => 'after_or_equal:'.$latestDate,
+                'time'              => 'required',
+                'location'          => 'required',
+                'bottom_time'       => 'required|numeric',
+                'max_depth'         => 'required|numeric',
+            ];
+        }
+
         return [
+            'date'              => 'before_or_equal:now',
             'time'              => 'required',
             'location'          => 'required',
             'bottom_time'       => 'required|numeric',
             'max_depth'         => 'required|numeric',
-        ];
+        ];        
+        
     }
 }

@@ -2107,6 +2107,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -39633,6 +39634,14 @@ var render = function() {
                                         "span",
                                         { staticClass: "red--text caption" },
                                         [_vm._v(_vm._s(_vm.errors.time[0]))]
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  _vm.errors.date
+                                    ? _c(
+                                        "span",
+                                        { staticClass: "red--text caption" },
+                                        [_vm._v(_vm._s(_vm.errors.date[0]))]
                                       )
                                     : _vm._e()
                                 ],
