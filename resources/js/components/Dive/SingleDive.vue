@@ -14,7 +14,7 @@
                 <div class="mt-2">
                   <h3># <v-badge class="mb-2" color="blue-grey darken-4">
                           <template v-slot:badge>
-                            <span>{{ dive.number }}</span>
+                            <span>{{ number }}</span>
                           </template> 
                         </v-badge>
                         <v-icon class="ml-4">calendar_today</v-icon> {{ dive.date_of_diving }}, <v-icon>access_time</v-icon> {{ dive.time_of_diving }}
@@ -53,16 +53,21 @@ import HereMap from '../HereMap'
 import ShowDive from './ShowDive'
 
 export default {
-    props: ['dive', 'loop'],
+    props: ['dive', 'loop', 'pagination', 'dive_count'],
     components: {HereMap, ShowDive},
     data() {
       return {
-        showDive: false
+        showDive: false,
       }
     },
     methods: {
       destroy() {
         EventBus.$emit('deleteDive', this.loop)
+      }
+    },
+    computed: {
+      number() {
+        return this.dive.count - this.loop
       }
     }
 }

@@ -4,7 +4,7 @@
   <v-layout row wrap>
     <v-flex xs12>
       <v-card v-for="(dive, index) in dives" :key="dive.id" class="mb-3">
-        <single-dive :dive="dive" :loop="index"></single-dive>
+        <single-dive :dive="dive" :loop="index" :pagination="pagination.current" :dive_count="dives.length"></single-dive>
       </v-card>
     </v-flex>
   </v-layout>
