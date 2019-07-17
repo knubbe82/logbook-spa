@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Carbon\Carbon;
+use App\Model\Dive;
 
 class DiveResource extends JsonResource
 {
@@ -17,7 +18,6 @@ class DiveResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'number' => $this->number,
             'date_of_diving' => Carbon::parse($this->time)->format('d-m-Y'),
             'date' => Carbon::parse($this->time),
             'time_of_diving' => Carbon::parse($this->time)->format('H:i'),
@@ -39,7 +39,8 @@ class DiveResource extends JsonResource
             'bcd_weights' => $this->bcd_weights,
             'description' => $this->description,
             'user' => $this->user->name,
-            'created_at' => $this->created_at->diffForHumans()
+            'created_at' => $this->created_at->diffForHumans(),
+            'count' => Dive::where('user_id', auth()->id())->count()
         ];
     }
 }

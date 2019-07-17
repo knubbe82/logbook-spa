@@ -15,7 +15,6 @@ class CreateDivesTable extends Migration
     {
         Schema::create('dives', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('number');
             $table->dateTime('time');
             $table->string('location');
             $table->string('bottom_time');
@@ -35,6 +34,8 @@ class CreateDivesTable extends Migration
             $table->text('description')->nullable();
             $table->unsignedInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
