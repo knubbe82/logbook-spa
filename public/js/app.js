@@ -2628,7 +2628,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['dive', 'loop'],
+  props: ['dive', 'loop', 'pagination'],
   components: {
     HereMap: _HereMap__WEBPACK_IMPORTED_MODULE_0__["default"],
     ShowDive: _ShowDive__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -2641,6 +2641,15 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     destroy: function destroy() {
       EventBus.$emit('deleteDive', this.loop);
+    }
+  },
+  computed: {
+    number: function number() {
+      if (this.pagination > 1) {
+        return this.dive.count - (this.pagination - 1) * 5 - this.loop;
+      }
+
+      return this.dive.count - this.loop;
     }
   }
 });
@@ -2657,6 +2666,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SingleDive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SingleDive */ "./resources/js/components/Dive/SingleDive.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -2707,6 +2720,8 @@ __webpack_require__.r(__webpack_exports__);
       EventBus.$on('deleteDive', function (index) {
         axios["delete"]("/api/dive/".concat(_this.dives[index].id)).then(function (res) {
           _this.dives.splice(index, 1);
+
+          _this.getDives();
         });
       });
     },
@@ -41767,9 +41782,7 @@ var render = function() {
                                 key: "badge",
                                 fn: function() {
                                   return [
-                                    _c("span", [
-                                      _vm._v(_vm._s(_vm.dive.number))
-                                    ])
+                                    _c("span", [_vm._v(_vm._s(_vm.number))])
                                   ]
                                 },
                                 proxy: true
@@ -41957,7 +41970,15 @@ var render = function() {
               return _c(
                 "v-card",
                 { key: dive.id, staticClass: "mb-3" },
-                [_c("single-dive", { attrs: { dive: dive, loop: index } })],
+                [
+                  _c("single-dive", {
+                    attrs: {
+                      dive: dive,
+                      loop: index,
+                      pagination: _vm.pagination.current
+                    }
+                  })
+                ],
                 1
               )
             }),
