@@ -18,7 +18,6 @@ class DiveResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'number' => $this->number,
             'date_of_diving' => Carbon::parse($this->time)->format('d-m-Y'),
             'date' => Carbon::parse($this->time),
             'time_of_diving' => Carbon::parse($this->time)->format('H:i'),

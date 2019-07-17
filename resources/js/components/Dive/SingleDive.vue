@@ -53,7 +53,7 @@ import HereMap from '../HereMap'
 import ShowDive from './ShowDive'
 
 export default {
-    props: ['dive', 'loop', 'pagination', 'dive_count'],
+    props: ['dive', 'loop', 'pagination'],
     components: {HereMap, ShowDive},
     data() {
       return {
@@ -67,6 +67,9 @@ export default {
     },
     computed: {
       number() {
+        if (this.pagination > 1) {
+          return this.dive.count - ((this.pagination - 1) * 5) - this.loop
+        }
         return this.dive.count - this.loop
       }
     }

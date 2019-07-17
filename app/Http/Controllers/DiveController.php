@@ -29,7 +29,7 @@ class DiveController extends Controller
      */
     public function index()
     {
-        return DiveResource::collection(auth()->user()->dives()->latest()->paginate(1));
+        return DiveResource::collection(auth()->user()->dives()->latest()->paginate(5));
     }
 
     /**
@@ -52,7 +52,6 @@ class DiveController extends Controller
     {
         $input = $request->except('date');
         $input['time'] = Carbon::createFromTimestamp(strtotime( $request['date'] . $input['time'] . ":00"));
-        $input['number'] = auth()->user()->dives()->count() + 1;
 
         auth()->user()->dives()->create($input);
     

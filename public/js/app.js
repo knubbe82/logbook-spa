@@ -2628,7 +2628,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['dive', 'loop', 'pagination', 'dive_count'],
+  props: ['dive', 'loop', 'pagination'],
   components: {
     HereMap: _HereMap__WEBPACK_IMPORTED_MODULE_0__["default"],
     ShowDive: _ShowDive__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -2645,6 +2645,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     number: function number() {
+      if (this.pagination > 1) {
+        return this.dive.count - (this.pagination - 1) * 5 - this.loop;
+      }
+
       return this.dive.count - this.loop;
     }
   }
@@ -2662,6 +2666,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SingleDive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SingleDive */ "./resources/js/components/Dive/SingleDive.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -2712,6 +2720,8 @@ __webpack_require__.r(__webpack_exports__);
       EventBus.$on('deleteDive', function (index) {
         axios["delete"]("/api/dive/".concat(_this.dives[index].id)).then(function (res) {
           _this.dives.splice(index, 1);
+
+          _this.getDives();
         });
       });
     },
@@ -41965,8 +41975,7 @@ var render = function() {
                     attrs: {
                       dive: dive,
                       loop: index,
-                      pagination: _vm.pagination.current,
-                      dive_count: _vm.dives.length
+                      pagination: _vm.pagination.current
                     }
                   })
                 ],
